@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/MusicPlayer">
+        <file>img/close.png</file>
+        <file>img/max.png</file>
+        <file>img/min.png</file>
+        <file>img/recover.png</file>
+        <file>img/close_hover.png</file>
+        <file>img/max_hover.png</file>
+        <file>img/min_hover.png</file>
+        <file>img/recover_hover.png</file>
+        <file>img/03.png</file>
+        <file>img/04.png</file>
+        <file>img/left_next.png</file>
+        <file>img/left_next_hover.png</file>
+        <file>img/right_new_hover.png</file>
+        <file>img/right_next.png</file>
+    </qresource>
+</RCC>
