@@ -86,10 +86,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="MusicPlayer.qrc" />
+    <QtUic Include="BottomWgt.ui" />
+    <QtUic Include="LeftWgt.ui" />
+    <QtUic Include="MainContentWgt.ui" />
     <QtUic Include="MusicPlayer.ui" />
     <QtMoc Include="MusicPlayer.h" />
+    <ClCompile Include="BottomWgt.cpp" />
+    <ClCompile Include="DownProcessBar.cpp" />
+    <ClCompile Include="LeftWgt.cpp" />
+    <ClCompile Include="MainContentWgt.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="BottomWgt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LeftWgt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MainContentWgt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="DownProcessBar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

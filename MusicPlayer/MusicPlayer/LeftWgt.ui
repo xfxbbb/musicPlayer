@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CLeftWgtClass</class>
+ <widget class="QWidget" name="CLeftWgtClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>339</width>
+    <height>1069</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CLeftWgt</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#CLeftWgtClass{
+
+}</string>
+  </property>
+  <widget class="QPushButton" name="allMusicBtn">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>190</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#allMusicBtn{
+	font-size:20pt;
+	color:#5f5f5f;
+	border:1px solid #5f5f5f;
+	background-color:#ffffff;
+}
+#allMusicBtn:hover{
+	color:#ffffff;
+	background-color:#5f5f5f;
+}</string>
+   </property>
+   <property name="text">
+    <string>本地音乐</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="favouriteMusicBtn">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>250</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#favouriteMusicBtn{
+	font-size:20pt;
+	color:#5f5f5f;
+	border:1px solid #5f5f5f;
+	background-color:#ffffff;
+}
+#favouriteMusicBtn:hover{
+	color:#ffffff;
+	background-color:#5f5f5f;
+}</string>
+   </property>
+   <property name="text">
+    <string>收藏歌曲</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

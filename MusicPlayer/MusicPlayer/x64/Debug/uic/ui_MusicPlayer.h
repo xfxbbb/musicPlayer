@@ -9,6 +9,9 @@
 #ifndef UI_MUSICPLAYER_H
 #define UI_MUSICPLAYER_H
 
+#include "BottomWgt.h"
+#include "LeftWgt.h"
+#include "MainContentWgt.h"
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
@@ -28,7 +31,7 @@ public:
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_3;
-    QWidget *leftWgt;
+    CLeftWgt *leftWgt;
     QVBoxLayout *verticalLayout_2;
     QWidget *titleWgt;
     QVBoxLayout *verticalLayout;
@@ -38,14 +41,8 @@ public:
     QPushButton *minBtn;
     QPushButton *maxBtn;
     QPushButton *closeBtn;
-    QWidget *contentWgt;
-    QWidget *bottomWgt;
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout_4;
-    QPushButton *leftNextBtn;
-    QPushButton *startBtn;
-    QPushButton *rightNextBtn;
-    QSpacerItem *horizontalSpacer_2;
+    CMainContentWgt *contentWgt;
+    CBottomWgt *bottomWgt;
 
     void setupUi(QMainWindow *MusicPlayerClass)
     {
@@ -72,7 +69,7 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(0);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        leftWgt = new QWidget(centralWidget);
+        leftWgt = new CLeftWgt(centralWidget);
         leftWgt->setObjectName(QString::fromUtf8("leftWgt"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
@@ -83,6 +80,7 @@ public:
         leftWgt->setMaximumSize(QSize(16777215, 16777215));
         leftWgt->setStyleSheet(QString::fromUtf8("#leftWgt{\n"
 "	background-color:#858585;\n"
+"	border-right:1px solid red;\n"
 "}"));
 
         horizontalLayout_3->addWidget(leftWgt);
@@ -171,7 +169,7 @@ public:
 
         verticalLayout_2->addWidget(titleWgt);
 
-        contentWgt = new QWidget(centralWidget);
+        contentWgt = new CMainContentWgt(centralWidget);
         contentWgt->setObjectName(QString::fromUtf8("contentWgt"));
         contentWgt->setStyleSheet(QString::fromUtf8("#contentWgt{\n"
 "	background-color:#f8f8f8;\n"
@@ -185,7 +183,7 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_3);
 
-        bottomWgt = new QWidget(centralWidget);
+        bottomWgt = new CBottomWgt(centralWidget);
         bottomWgt->setObjectName(QString::fromUtf8("bottomWgt"));
         QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Maximum);
         sizePolicy3.setHorizontalStretch(0);
@@ -196,61 +194,6 @@ public:
         bottomWgt->setStyleSheet(QString::fromUtf8("#bottomWgt{\n"
 "	background-color:#dadada;\n"
 "}"));
-        widget = new QWidget(bottomWgt);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(20, 20, 1691, 52));
-        horizontalLayout_4 = new QHBoxLayout(widget);
-        horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        leftNextBtn = new QPushButton(widget);
-        leftNextBtn->setObjectName(QString::fromUtf8("leftNextBtn"));
-        QSizePolicy sizePolicy4(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(leftNextBtn->sizePolicy().hasHeightForWidth());
-        leftNextBtn->setSizePolicy(sizePolicy4);
-        leftNextBtn->setMaximumSize(QSize(80, 50));
-        leftNextBtn->setStyleSheet(QString::fromUtf8("#leftNextBtn{\n"
-"	\n"
-"	border-image: url(:/MusicPlayer/img/left_next.png);\n"
-"}\n"
-"\n"
-"#leftNextBtn:hover{\n"
-"	\n"
-"	border-image: url(:/MusicPlayer/img/left_next_hover.png);\n"
-"}"));
-
-        horizontalLayout_4->addWidget(leftNextBtn);
-
-        startBtn = new QPushButton(widget);
-        startBtn->setObjectName(QString::fromUtf8("startBtn"));
-        startBtn->setMinimumSize(QSize(0, 50));
-        startBtn->setStyleSheet(QString::fromUtf8("#startBtn{\n"
-"	\n"
-"	border-image: url(:/MusicPlayer/img/03.png);\n"
-"}"));
-
-        horizontalLayout_4->addWidget(startBtn);
-
-        rightNextBtn = new QPushButton(widget);
-        rightNextBtn->setObjectName(QString::fromUtf8("rightNextBtn"));
-        rightNextBtn->setMinimumSize(QSize(0, 50));
-        rightNextBtn->setStyleSheet(QString::fromUtf8("#rightNextBtn{\n"
-"	\n"
-"	border-image: url(:/MusicPlayer/img/right_next.png);\n"
-"}\n"
-"#rightNextBtn:hover{\n"
-"	image: url(:/MusicPlayer/img/right_new_hover.png);\n"
-"}"));
-
-        horizontalLayout_4->addWidget(rightNextBtn);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_2);
-
 
         verticalLayout_3->addWidget(bottomWgt);
 
@@ -270,9 +213,6 @@ public:
         minBtn->setText(QString());
         maxBtn->setText(QString());
         closeBtn->setText(QString());
-        leftNextBtn->setText(QString());
-        startBtn->setText(QString());
-        rightNextBtn->setText(QString());
     } // retranslateUi
 
 };
