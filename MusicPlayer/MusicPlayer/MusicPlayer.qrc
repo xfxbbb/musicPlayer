@@ -8,11 +8,19 @@
         <file>img/max_hover.png</file>
         <file>img/min_hover.png</file>
         <file>img/recover_hover.png</file>
-        <file>img/03.png</file>
-        <file>img/04.png</file>
-        <file>img/left_next.png</file>
-        <file>img/left_next_hover.png</file>
-        <file>img/right_new_hover.png</file>
-        <file>img/right_next.png</file>
+        <file>img/24gl-playlistHeart2.png</file>
+        <file>img/24gl-playlistMusic2.png</file>
+        <file>img/上一曲.png</file>
+        <file>img/上一曲_hover.png</file>
+        <file>img/下一曲.png</file>
+        <file>img/下一曲_hover.png</file>
+        <file>img/播放2.png</file>
+        <file>img/播放2_hover.png</file>
+        <file>img/暂停.png</file>
+        <file>img/暂停_hover.png</file>
+        <file>img/声音.png</file>
+        <file>img/声音静音.png</file>
+        <file>img/音乐列表.png</file>
+        <file>img/音乐列表_hover.png</file>
     </qresource>
 </RCC>

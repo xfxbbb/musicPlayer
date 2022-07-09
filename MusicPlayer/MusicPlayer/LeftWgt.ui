@@ -6,54 +6,129 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>339</width>
-    <height>1069</height>
+    <width>300</width>
+    <height>1292</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>CLeftWgt</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#CLeftWgtClass{
-
-}</string>
+   <string notr="true"/>
   </property>
-  <widget class="QPushButton" name="allMusicBtn">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>190</y>
-     <width>201</width>
-     <height>41</height>
-    </rect>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="spacing">
+    <number>0</number>
    </property>
-   <property name="styleSheet">
-    <string notr="true">#allMusicBtn{
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="awidget" native="true">
+     <property name="styleSheet">
+      <string notr="true">#awidget{
+	background: #f8f8f8;
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0">
+      <property name="spacing">
+       <number>11</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>11</number>
+      </property>
+      <property name="rightMargin">
+       <number>11</number>
+      </property>
+      <property name="bottomMargin">
+       <number>11</number>
+      </property>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Maximum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>90</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">#label{
+	color :#808080;
+	font-size:16pt;
+}</string>
+          </property>
+          <property name="text">
+           <string> 我的音乐</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::AutoText</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Maximum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>2</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="allMusicBtn">
+          <property name="styleSheet">
+           <string notr="true">#allMusicBtn{
 	font-size:20pt;
 	color:#5f5f5f;
-	border:1px solid #5f5f5f;
+	/*border:1px solid #5f5f5f;*/
+	boreder:none;
 	background-color:#ffffff;
 }
 #allMusicBtn:hover{
 	color:#ffffff;
 	background-color:#5f5f5f;
 }</string>
-   </property>
-   <property name="text">
-    <string>本地音乐</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="favouriteMusicBtn">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>250</y>
-     <width>201</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#favouriteMusicBtn{
+          </property>
+          <property name="text">
+           <string>本地音乐</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="favouriteMusicBtn">
+          <property name="styleSheet">
+           <string notr="true">#favouriteMusicBtn{
 	font-size:20pt;
 	color:#5f5f5f;
 	border:1px solid #5f5f5f;
@@ -63,13 +138,35 @@
 	color:#ffffff;
 	background-color:#5f5f5f;
 }</string>
-   </property>
-   <property name="text">
-    <string>收藏歌曲</string>
-   </property>
-  </widget>
+          </property>
+          <property name="text">
+           <string>收藏歌曲</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="MusicPlayer.qrc"/>
+ </resources>
  <connections/>
 </ui>

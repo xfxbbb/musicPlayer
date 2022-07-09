@@ -74,8 +74,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">#leftWgt{
-	background-color:#858585;
-	border-right:1px solid red;
+	background:#f8f8f8;
 }</string>
           </property>
          </widget>
@@ -102,6 +101,7 @@
             <property name="styleSheet">
              <string notr="true">#titleWgt{
 	border-color: rgb(229, 243, 255);
+	boreder: 1px solid black;
 }</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
@@ -230,9 +230,7 @@
           <item>
            <widget class="CMainContentWgt" name="contentWgt" native="true">
             <property name="styleSheet">
-             <string notr="true">#contentWgt{
-	background-color:#f8f8f8;
-}</string>
+             <string notr="true"/>
             </property>
            </widget>
           </item>
@@ -255,9 +253,7 @@
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">#bottomWgt{
-	background-color:#dadada;
-}</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>

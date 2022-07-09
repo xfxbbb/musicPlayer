@@ -9,9 +9,9 @@
 #ifndef UI_MUSICPLAYER_H
 #define UI_MUSICPLAYER_H
 
-#include "BottomWgt.h"
-#include "LeftWgt.h"
-#include "MainContentWgt.h"
+#include <BottomWgt.h>
+#include <LeftWgt.h>
+#include <MainContentWgt.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
@@ -79,8 +79,7 @@ public:
         leftWgt->setMinimumSize(QSize(300, 0));
         leftWgt->setMaximumSize(QSize(16777215, 16777215));
         leftWgt->setStyleSheet(QString::fromUtf8("#leftWgt{\n"
-"	background-color:#858585;\n"
-"	border-right:1px solid red;\n"
+"	background:#f8f8f8;\n"
 "}"));
 
         horizontalLayout_3->addWidget(leftWgt);
@@ -95,6 +94,7 @@ public:
         titleWgt->setMaximumSize(QSize(16777215, 59));
         titleWgt->setStyleSheet(QString::fromUtf8("#titleWgt{\n"
 "	border-color: rgb(229, 243, 255);\n"
+"	boreder: 1px solid black;\n"
 "}"));
         verticalLayout = new QVBoxLayout(titleWgt);
         verticalLayout->setSpacing(6);
@@ -171,9 +171,7 @@ public:
 
         contentWgt = new CMainContentWgt(centralWidget);
         contentWgt->setObjectName(QString::fromUtf8("contentWgt"));
-        contentWgt->setStyleSheet(QString::fromUtf8("#contentWgt{\n"
-"	background-color:#f8f8f8;\n"
-"}"));
+        contentWgt->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout_2->addWidget(contentWgt);
 
@@ -191,9 +189,7 @@ public:
         sizePolicy3.setHeightForWidth(bottomWgt->sizePolicy().hasHeightForWidth());
         bottomWgt->setSizePolicy(sizePolicy3);
         bottomWgt->setMinimumSize(QSize(0, 85));
-        bottomWgt->setStyleSheet(QString::fromUtf8("#bottomWgt{\n"
-"	background-color:#dadada;\n"
-"}"));
+        bottomWgt->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout_3->addWidget(bottomWgt);
 

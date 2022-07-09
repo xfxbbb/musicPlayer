@@ -1,13 +1,8 @@
-﻿  BottomWgt.cpp
-  DownProcessBar.cpp
+﻿  Reading Qt configuration (C:/Qt_exe/5.15.2/msvc2019_64/bin/qmake)
+  uic LeftWgt.ui
   LeftWgt.cpp
-  MainContentWgt.cpp
   MusicPlayer.cpp
   main.cpp
-  qrc_MusicPlayer.cpp
-  moc_MusicPlayer.cpp
-  moc_BottomWgt.cpp
   moc_LeftWgt.cpp
-  moc_MainContentWgt.cpp
-  moc_DownProcessBar.cpp
+  moc_MusicPlayer.cpp
   MusicPlayer.vcxproj -> D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\x64\Debug\MusicPlayer.exe
