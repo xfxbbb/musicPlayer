@@ -3,22 +3,25 @@
 DownProcessBar::DownProcessBar(QWidget *parent)
 	: QWidget(parent)
 {
+    //255, 255, 255
 	QPalette pal;
-	pal.setColor(QPalette::WindowText, QColor(255, 255, 255));
+	pal.setColor(QPalette::WindowText, QColor(0,47,167));
 	QFont font("Courier", 10);
 	liftLabel = new QLabel(this);
 	rightLabel = new QLabel(this);
 	liftLabel->setAlignment(Qt::AlignCenter);
 	rightLabel->setAlignment(Qt::AlignCenter);
 	liftLabel->setGeometry(0, 10, 50, 50);
-	rightLabel->setGeometry(640, 10, 50, 50);
+	//rightLabel->setGeometry(640, 10, 50, 50);
+    rightLabel->setGeometry(920, 10, 50, 50);
 	rightLabel->setFont(font);
 	liftLabel->setFont(font);
 	liftLabel->setPalette(pal);
 	rightLabel->setPalette(pal);
 	timer3 = new QTimer(this);
 	timer3->setInterval(1000);
-
+    rightLabel->setText(s);
+    liftLabel->setText(t);
 	connect(timer3, &QTimer::timeout, this, &DownProcessBar::updatepos);
 }
 
@@ -26,7 +29,6 @@ DownProcessBar::~DownProcessBar()
 {}
 
 void DownProcessBar::paintEvent(QPaintEvent* event)
-
 {
     Q_UNUSED(event);
     QPainter painter(this);
@@ -34,11 +36,11 @@ void DownProcessBar::paintEvent(QPaintEvent* event)
     painter.setRenderHint(QPainter::Antialiasing);
     QColor baseColor(27, 45, 47);
     QColor inColor(123, 156, 241);
-    QColor outColor(255, 255, 255);
+    QColor outColor(240, 240, 240);
     painter.save();
     painter.setPen(Qt::NoPen);
     painter.setBrush(baseColor);
-    QRectF rect = QRectF(55, 32, 580, 6);
+    QRectF rect = QRectF(55, 32, 860, 6);
     painter.drawRoundedRect(rect, 3, 3);
     painter.restore();
     painter.save();
@@ -60,8 +62,8 @@ void DownProcessBar::paintEvent(QPaintEvent* event)
 }
 
 void DownProcessBar::mousePressEvent(QMouseEvent* event)
-
 {
+    ///鼠标按下事件 点击更新音乐进度条///
     if (event->pos().y() > 30 && event->pos().y() < 50)
     {
         int value;
@@ -70,9 +72,9 @@ void DownProcessBar::mousePressEvent(QMouseEvent* event)
         {
             X = 56;
         }
-        else if (value > 635)
+        else if (value > 920)
         {
-            X = 620;
+            X = 900;
         }
         else
         {
@@ -93,18 +95,16 @@ void DownProcessBar::mousePressEvent(QMouseEvent* event)
 }
 
 void DownProcessBar::mouseMoveEvent(QMouseEvent* event)//可以进行拖动
-
 {
-
     int value;
     value = event->pos().x();
     if (value < 55)
     {
         X = 56;
     }
-    else if (value > 635)
+    else if (value > 920)
     {
-        X = 620;
+        X = 900;
     }
     else
     {

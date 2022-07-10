@@ -22,5 +22,6 @@
         <file>img/声音静音.png</file>
         <file>img/音乐列表.png</file>
         <file>img/音乐列表_hover.png</file>
+        <file>img/musicImg.png</file>
     </qresource>
 </RCC>

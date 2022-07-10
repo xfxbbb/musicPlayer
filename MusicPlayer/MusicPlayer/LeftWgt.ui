@@ -44,7 +44,7 @@
        <number>11</number>
       </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="topMargin">
        <number>11</number>
@@ -111,9 +111,9 @@
            <string notr="true">#allMusicBtn{
 	font-size:20pt;
 	color:#5f5f5f;
-	/*border:1px solid #5f5f5f;*/
-	boreder:none;
-	background-color:#ffffff;
+	border-style:none;
+	background-color:#f8f8f8;
+	text-align:left;
 }
 #allMusicBtn:hover{
 	color:#ffffff;
@@ -121,7 +121,14 @@
 }</string>
           </property>
           <property name="text">
-           <string>本地音乐</string>
+           <string>   本地音乐</string>
+          </property>
+          <property name="icon">
+           <iconset resource="MusicPlayer.qrc">
+            <normaloff>:/MusicPlayer/img/24gl-playlistMusic2.png</normaloff>:/MusicPlayer/img/24gl-playlistMusic2.png</iconset>
+          </property>
+          <property name="default">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -131,8 +138,9 @@
            <string notr="true">#favouriteMusicBtn{
 	font-size:20pt;
 	color:#5f5f5f;
-	border:1px solid #5f5f5f;
-	background-color:#ffffff;
+	border-style:none;
+	background-color:#f8f8f8;
+	text-align:left;
 }
 #favouriteMusicBtn:hover{
 	color:#ffffff;
@@ -140,7 +148,14 @@
 }</string>
           </property>
           <property name="text">
-           <string>收藏歌曲</string>
+           <string>   收藏歌曲</string>
+          </property>
+          <property name="icon">
+           <iconset resource="MusicPlayer.qrc">
+            <normaloff>:/MusicPlayer/img/24gl-playlistHeart2.png</normaloff>:/MusicPlayer/img/24gl-playlistHeart2.png</iconset>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
           </property>
          </widget>
         </item>

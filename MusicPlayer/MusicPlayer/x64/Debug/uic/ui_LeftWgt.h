@@ -10,6 +10,7 @@
 #define UI_LEFTWGT_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -53,7 +54,7 @@ public:
         verticalLayout_2->setSpacing(11);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 11, 11, 11);
+        verticalLayout_2->setContentsMargins(5, 11, 11, 11);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -80,14 +81,17 @@ public:
         allMusicBtn->setStyleSheet(QString::fromUtf8("#allMusicBtn{\n"
 "	font-size:20pt;\n"
 "	color:#5f5f5f;\n"
-"	/*border:1px solid #5f5f5f;*/\n"
-"	boreder:none;\n"
-"	background-color:#ffffff;\n"
+"	border-style:none;\n"
+"	background-color:#f8f8f8;\n"
+"	text-align:left;\n"
 "}\n"
 "#allMusicBtn:hover{\n"
 "	color:#ffffff;\n"
 "	background-color:#5f5f5f;\n"
 "}"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/MusicPlayer/img/24gl-playlistMusic2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        allMusicBtn->setIcon(icon);
 
         verticalLayout->addWidget(allMusicBtn);
 
@@ -96,13 +100,18 @@ public:
         favouriteMusicBtn->setStyleSheet(QString::fromUtf8("#favouriteMusicBtn{\n"
 "	font-size:20pt;\n"
 "	color:#5f5f5f;\n"
-"	border:1px solid #5f5f5f;\n"
-"	background-color:#ffffff;\n"
+"	border-style:none;\n"
+"	background-color:#f8f8f8;\n"
+"	text-align:left;\n"
 "}\n"
 "#favouriteMusicBtn:hover{\n"
 "	color:#ffffff;\n"
 "	background-color:#5f5f5f;\n"
 "}"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/MusicPlayer/img/24gl-playlistHeart2.png"), QSize(), QIcon::Normal, QIcon::Off);
+        favouriteMusicBtn->setIcon(icon1);
+        favouriteMusicBtn->setCheckable(false);
 
         verticalLayout->addWidget(favouriteMusicBtn);
 
@@ -119,6 +128,9 @@ public:
 
         retranslateUi(CLeftWgtClass);
 
+        allMusicBtn->setDefault(false);
+
+
         QMetaObject::connectSlotsByName(CLeftWgtClass);
     } // setupUi
 
@@ -126,8 +138,8 @@ public:
     {
         CLeftWgtClass->setWindowTitle(QCoreApplication::translate("CLeftWgtClass", "CLeftWgt", nullptr));
         label->setText(QCoreApplication::translate("CLeftWgtClass", " \346\210\221\347\232\204\351\237\263\344\271\220", nullptr));
-        allMusicBtn->setText(QCoreApplication::translate("CLeftWgtClass", "\346\234\254\345\234\260\351\237\263\344\271\220", nullptr));
-        favouriteMusicBtn->setText(QCoreApplication::translate("CLeftWgtClass", "\346\224\266\350\227\217\346\255\214\346\233\262", nullptr));
+        allMusicBtn->setText(QCoreApplication::translate("CLeftWgtClass", "   \346\234\254\345\234\260\351\237\263\344\271\220", nullptr));
+        favouriteMusicBtn->setText(QCoreApplication::translate("CLeftWgtClass", "   \346\224\266\350\227\217\346\255\214\346\233\262", nullptr));
     } // retranslateUi
 
 };
