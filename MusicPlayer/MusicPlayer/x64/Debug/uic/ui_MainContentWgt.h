@@ -9,9 +9,11 @@
 #ifndef UI_MAINCONTENTWGT_H
 #define UI_MAINCONTENTWGT_H
 
+#include <FavouriteMusicWgt.h>
+#include <LocalMusicWgt.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QTabWidget>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -23,7 +25,9 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *awidget;
     QVBoxLayout *verticalLayout_2;
-    QTabWidget *tabWidget;
+    QStackedWidget *stackedWidget;
+    CLocalMusicWgt *page;
+    CFavouriteMusicWgt *page_2;
 
     void setupUi(QWidget *CMainContentWgtClass)
     {
@@ -43,14 +47,19 @@ public:
 "\n"
 "}"));
         verticalLayout_2 = new QVBoxLayout(awidget);
-        verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        tabWidget = new QTabWidget(awidget);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        stackedWidget = new QStackedWidget(awidget);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        page = new CLocalMusicWgt();
+        page->setObjectName(QString::fromUtf8("page"));
+        stackedWidget->addWidget(page);
+        page_2 = new CFavouriteMusicWgt();
+        page_2->setObjectName(QString::fromUtf8("page_2"));
+        stackedWidget->addWidget(page_2);
 
-        verticalLayout_2->addWidget(tabWidget);
+        verticalLayout_2->addWidget(stackedWidget);
 
 
         verticalLayout->addWidget(awidget);
@@ -58,7 +67,7 @@ public:
 
         retranslateUi(CMainContentWgtClass);
 
-        tabWidget->setCurrentIndex(-1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(CMainContentWgtClass);

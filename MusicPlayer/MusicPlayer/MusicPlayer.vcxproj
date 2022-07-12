@@ -33,7 +33,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>5.15.2_msvc2019_64</QtInstall>
     <QtBuildConfig>debug</QtBuildConfig>
-    <QtModules>gui;uitools;widgets;</QtModules>
+    <QtModules>gui;uitools;widgets;core</QtModules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>5.15.2_msvc2019_64</QtInstall>
@@ -90,15 +90,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="PublicData.cpp" />
     <QtRcc Include="MusicPlayer.qrc" />
     <QtUic Include="BottomWgt.ui" />
+    <QtUic Include="FavouriteMusicWgt.ui" />
     <QtUic Include="LeftWgt.ui" />
+    <QtUic Include="LocalMusicWgt.ui" />
     <QtUic Include="MainContentWgt.ui" />
     <QtUic Include="MusicPlayer.ui" />
     <QtMoc Include="MusicPlayer.h" />
     <ClCompile Include="BottomWgt.cpp" />
     <ClCompile Include="DownProcessBar.cpp" />
+    <ClCompile Include="FavouriteMusicWgt.cpp" />
     <ClCompile Include="LeftWgt.cpp" />
+    <ClCompile Include="LocalMusicWgt.cpp" />
     <ClCompile Include="MainContentWgt.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -114,6 +119,15 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="DownProcessBar.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LocalMusicWgt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FavouriteMusicWgt.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PublicData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

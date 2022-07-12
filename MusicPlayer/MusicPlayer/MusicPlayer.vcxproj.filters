@@ -52,6 +52,15 @@
     <ClCompile Include="DownProcessBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LocalMusicWgt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FavouriteMusicWgt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PublicData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="BottomWgt.ui">
@@ -61,6 +70,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="MainContentWgt.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="LocalMusicWgt.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="FavouriteMusicWgt.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -77,5 +92,16 @@
     <QtMoc Include="DownProcessBar.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="LocalMusicWgt.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FavouriteMusicWgt.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PublicData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

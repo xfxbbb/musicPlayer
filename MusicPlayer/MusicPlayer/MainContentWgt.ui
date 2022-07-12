@@ -39,26 +39,13 @@
 }</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
       <item>
-       <widget class="QTabWidget" name="tabWidget">
+       <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>-1</number>
+         <number>0</number>
         </property>
+        <widget class="CLocalMusicWgt" name="page"/>
+        <widget class="CFavouriteMusicWgt" name="page_2"/>
        </widget>
       </item>
      </layout>
@@ -67,6 +54,20 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CFavouriteMusicWgt</class>
+   <extends>QWidget</extends>
+   <header location="global">FavouriteMusicWgt.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CLocalMusicWgt</class>
+   <extends>QWidget</extends>
+   <header location="global">LocalMusicWgt.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

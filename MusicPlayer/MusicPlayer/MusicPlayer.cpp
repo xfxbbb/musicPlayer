@@ -18,7 +18,7 @@ void MusicPlayer::init()
     connect(ui.closeBtn,&QPushButton::clicked,this,&MusicPlayer::slots_closeBtn_clicked);
     connect(ui.maxBtn, &QPushButton::clicked, this, &MusicPlayer::slots_maxBtn_clicked);
     connect(ui.minBtn, &QPushButton::clicked, this, &MusicPlayer::slots_minBtn_clicked);
-
+    connect(ui.leftWgt, &CLeftWgt::signal_switch_wgt, this, &MusicPlayer::slots_switch_musicWgt);
     ui.titleWgt->installEventFilter(this);
 }
 
@@ -86,4 +86,20 @@ bool MusicPlayer::eventFilter(QObject* obj, QEvent* eve)
         this->move(event->globalPos() - mousePoint);  // 移动到事件位置减去上次鼠标位置的偏移
     }
     return true;
+}
+
+void MusicPlayer::slots_switch_musicWgt(PublicData::MUSICWGTE e)
+{
+    ///切换界面///
+    if (e == PublicData::MUSICWGTE::E_ALLMUSIC)
+    {
+        // 显示全部音乐界面
+        ui.contentWgt->m_stackedWgt->setCurrentIndex(PublicData::MUSICWGTE::E_ALLMUSIC);
+    }
+    else if (e == PublicData::MUSICWGTE::E_FAVOURITEMUSIC)
+    {
+         // 显示收藏音乐界面
+        ui.contentWgt->m_stackedWgt->setCurrentIndex(PublicData::MUSICWGTE::E_FAVOURITEMUSIC);
+    }
+
 }

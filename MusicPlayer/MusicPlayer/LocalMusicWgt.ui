@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CLocalMusicWgtClass</class>
+ <widget class="QWidget" name="CLocalMusicWgtClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1043</width>
+    <height>908</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CLocalMusicWgt</string>
+  </property>
+  <widget class="QWidget" name="leftSongImg" native="true">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>171</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#leftSongImg{	
+	
+	border-image: url(:/MusicPlayer/img/musicImg.png);
+
+}</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="listView">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>290</y>
+     <width>941</width>
+     <height>541</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="rdSongBtn">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>60</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>随机播放</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addSongBtn">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>60</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>添加歌曲</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="MusicPlayer.qrc"/>
+ </resources>
+ <connections/>
+</ui>
