@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include "ui_LocalMusicWgt.h"
+#include "PublicData.h"
 
 class CLocalMusicWgt : public QWidget
 {
@@ -10,7 +11,7 @@ class CLocalMusicWgt : public QWidget
 public:
 	CLocalMusicWgt(QWidget *parent = nullptr);
 	~CLocalMusicWgt();
-
+	void init();  // ≥ı ºªØ
 private:
 	Ui::CLocalMusicWgtClass ui;
 };

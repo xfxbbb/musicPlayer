@@ -107,8 +107,20 @@
         </item>
         <item>
          <widget class="QPushButton" name="allMusicBtn">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
           <property name="styleSheet">
-           <string notr="true">#allMusicBtn{
+           <string notr="true">/*#allMusicBtn{
 	font-size:20pt;
 	color:#5f5f5f;
 	border-style:none;
@@ -118,14 +130,29 @@
 #allMusicBtn:hover{
 	color:#ffffff;
 	background-color:#5f5f5f;
+}*/
+
+#allMusicBtn{
+	
+	border-image: url(:/MusicPlayer/img/allMusic.png);
+}
+
+#allMusicBtn:hover{
+	
+	border-image: url(:/MusicPlayer/img/allMusic_hover.png);
+}
+#allMusicBtn:checked{
+	border-image: url(:/MusicPlayer/img/allMusic_hover.png);
 }</string>
           </property>
           <property name="text">
-           <string>   本地音乐</string>
+           <string/>
           </property>
-          <property name="icon">
-           <iconset resource="MusicPlayer.qrc">
-            <normaloff>:/MusicPlayer/img/24gl-playlistMusic2.png</normaloff>:/MusicPlayer/img/24gl-playlistMusic2.png</iconset>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="autoRepeat">
+           <bool>true</bool>
           </property>
           <property name="default">
            <bool>false</bool>
@@ -134,28 +161,38 @@
         </item>
         <item>
          <widget class="QPushButton" name="favouriteMusicBtn">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">#favouriteMusicBtn{
-	font-size:20pt;
-	color:#5f5f5f;
-	border-style:none;
-	background-color:#f8f8f8;
-	text-align:left;
+
+	border-image: url(:/MusicPlayer/img/localMusic.png);
 }
 #favouriteMusicBtn:hover{
-	color:#ffffff;
-	background-color:#5f5f5f;
+	border-image: url(:/MusicPlayer/img/localMusic_hover.png);
+}
+#favouriteMusicBtn:checked{
+	border-image: url(:/MusicPlayer/img/localMusic_hover.png);
 }</string>
           </property>
           <property name="text">
-           <string>   收藏歌曲</string>
-          </property>
-          <property name="icon">
-           <iconset resource="MusicPlayer.qrc">
-            <normaloff>:/MusicPlayer/img/24gl-playlistHeart2.png</normaloff>:/MusicPlayer/img/24gl-playlistHeart2.png</iconset>
+           <string/>
           </property>
           <property name="checkable">
-           <bool>false</bool>
+           <bool>true</bool>
+          </property>
+          <property name="autoRepeat">
+           <bool>true</bool>
           </property>
          </widget>
         </item>

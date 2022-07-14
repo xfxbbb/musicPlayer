@@ -23,5 +23,9 @@
         <file>img/音乐列表.png</file>
         <file>img/音乐列表_hover.png</file>
         <file>img/musicImg.png</file>
+        <file>img/allMusic.png</file>
+        <file>img/allMusic_hover.png</file>
+        <file>img/localMusic.png</file>
+        <file>img/localMusic_hover.png</file>
     </qresource>
 </RCC>

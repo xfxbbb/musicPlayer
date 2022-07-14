@@ -10,7 +10,6 @@
 #define UI_LEFTWGT_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
@@ -78,7 +77,13 @@ public:
 
         allMusicBtn = new QPushButton(awidget);
         allMusicBtn->setObjectName(QString::fromUtf8("allMusicBtn"));
-        allMusicBtn->setStyleSheet(QString::fromUtf8("#allMusicBtn{\n"
+        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(allMusicBtn->sizePolicy().hasHeightForWidth());
+        allMusicBtn->setSizePolicy(sizePolicy);
+        allMusicBtn->setMinimumSize(QSize(0, 30));
+        allMusicBtn->setStyleSheet(QString::fromUtf8("/*#allMusicBtn{\n"
 "	font-size:20pt;\n"
 "	color:#5f5f5f;\n"
 "	border-style:none;\n"
@@ -88,30 +93,42 @@ public:
 "#allMusicBtn:hover{\n"
 "	color:#ffffff;\n"
 "	background-color:#5f5f5f;\n"
+"}*/\n"
+"\n"
+"#allMusicBtn{\n"
+"	\n"
+"	border-image: url(:/MusicPlayer/img/allMusic.png);\n"
+"}\n"
+"\n"
+"#allMusicBtn:hover{\n"
+"	\n"
+"	border-image: url(:/MusicPlayer/img/allMusic_hover.png);\n"
+"}\n"
+"#allMusicBtn:checked{\n"
+"	border-image: url(:/MusicPlayer/img/allMusic_hover.png);\n"
 "}"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/MusicPlayer/img/24gl-playlistMusic2.png"), QSize(), QIcon::Normal, QIcon::Off);
-        allMusicBtn->setIcon(icon);
+        allMusicBtn->setCheckable(true);
+        allMusicBtn->setAutoRepeat(true);
 
         verticalLayout->addWidget(allMusicBtn);
 
         favouriteMusicBtn = new QPushButton(awidget);
         favouriteMusicBtn->setObjectName(QString::fromUtf8("favouriteMusicBtn"));
+        sizePolicy.setHeightForWidth(favouriteMusicBtn->sizePolicy().hasHeightForWidth());
+        favouriteMusicBtn->setSizePolicy(sizePolicy);
+        favouriteMusicBtn->setMinimumSize(QSize(0, 30));
         favouriteMusicBtn->setStyleSheet(QString::fromUtf8("#favouriteMusicBtn{\n"
-"	font-size:20pt;\n"
-"	color:#5f5f5f;\n"
-"	border-style:none;\n"
-"	background-color:#f8f8f8;\n"
-"	text-align:left;\n"
+"\n"
+"	border-image: url(:/MusicPlayer/img/localMusic.png);\n"
 "}\n"
 "#favouriteMusicBtn:hover{\n"
-"	color:#ffffff;\n"
-"	background-color:#5f5f5f;\n"
+"	border-image: url(:/MusicPlayer/img/localMusic_hover.png);\n"
+"}\n"
+"#favouriteMusicBtn:checked{\n"
+"	border-image: url(:/MusicPlayer/img/localMusic_hover.png);\n"
 "}"));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/MusicPlayer/img/24gl-playlistHeart2.png"), QSize(), QIcon::Normal, QIcon::Off);
-        favouriteMusicBtn->setIcon(icon1);
-        favouriteMusicBtn->setCheckable(false);
+        favouriteMusicBtn->setCheckable(true);
+        favouriteMusicBtn->setAutoRepeat(true);
 
         verticalLayout->addWidget(favouriteMusicBtn);
 
@@ -138,8 +155,8 @@ public:
     {
         CLeftWgtClass->setWindowTitle(QCoreApplication::translate("CLeftWgtClass", "CLeftWgt", nullptr));
         label->setText(QCoreApplication::translate("CLeftWgtClass", " \346\210\221\347\232\204\351\237\263\344\271\220", nullptr));
-        allMusicBtn->setText(QCoreApplication::translate("CLeftWgtClass", "   \346\234\254\345\234\260\351\237\263\344\271\220", nullptr));
-        favouriteMusicBtn->setText(QCoreApplication::translate("CLeftWgtClass", "   \346\224\266\350\227\217\346\255\214\346\233\262", nullptr));
+        allMusicBtn->setText(QString());
+        favouriteMusicBtn->setText(QString());
     } // retranslateUi
 
 };

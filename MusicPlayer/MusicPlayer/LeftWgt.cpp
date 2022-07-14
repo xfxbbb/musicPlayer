@@ -4,8 +4,6 @@ CLeftWgt::CLeftWgt(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-	ui.allMusicBtn->setIcon(QIcon(":/MusicPlayer/img/24gl-playlistMusic2.png"));
-	ui.favouriteMusicBtn->setIcon(QIcon(":/MusicPlayer/img/24gl-playlistHeart2.png"));
 
 	// 切换
 	connect(ui.allMusicBtn, &QPushButton::clicked, [=]() {
@@ -15,6 +13,12 @@ CLeftWgt::CLeftWgt(QWidget *parent)
 	connect(ui.favouriteMusicBtn, &QPushButton::clicked, [=]() {
 		emit signal_switch_wgt(PublicData::MUSICWGTE::E_FAVOURITEMUSIC);  // 收藏音乐界面
 		});
+
+	// 设置组
+	_btnGroup = new QButtonGroup(this);
+	_btnGroup->addButton(ui.allMusicBtn);
+	_btnGroup->addButton(ui.favouriteMusicBtn);
+	_btnGroup->setExclusive(true);
 }
 
 CLeftWgt::~CLeftWgt()

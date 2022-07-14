@@ -140,7 +140,12 @@ public:
 "}\n"
 "#startBtn:hover{\n"
 "	border-image: url(:/MusicPlayer/img/\346\222\255\346\224\2762_hover.png);\n"
+"}\n"
+"#startBtn:checked{\n"
+"	border-image: url(:/MusicPlayer/img/\346\232\202\345\201\234.png);\n"
 "}"));
+        startBtn->setCheckable(true);
+        startBtn->setAutoRepeat(true);
 
         horizontalLayout->addWidget(startBtn);
 
@@ -230,8 +235,6 @@ public:
 
         verticalLayout_3->addLayout(verticalLayout_2);
 
-        processWidget->raise();
-        label->raise();
 
         horizontalLayout_2->addWidget(contentWgt);
 

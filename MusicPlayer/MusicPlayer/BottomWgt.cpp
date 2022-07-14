@@ -6,37 +6,24 @@ CBottomWgt::CBottomWgt(QWidget *parent)
 	ui.setupUi(this);
 
 	connect(ui.startBtn, &QPushButton::clicked, this, [=]() {
-		if (!m_bSongStatue)  // Ä¬ÈÏ Ò²ÊÇÔÝÍ£
+		if (!_bSongStatue)  // Ä¬ÈÏ Ò²ÊÇÔÝÍ£
 		{
-			QString strSheet = "#startBtn{ \
-				border-image:url(:/MusicPlayer/img/ÔÝÍ£.png); \
-				} \
-			#startBtn:hover{ \
-				border-image:url(:/MusicPlayer/img/ÔÝÍ£_hover.png); \
-			}";
-
-			QString strSheet2 = " \
-            #startBtn{ \
-                border-image: url(:/MusicPlayer/img/ÔÝÍ£.png); \
-             } \
-            #startBtn:hover{ \
-               border-image: url(:/MusicPlayer/img/ÔÝÍ£_hover.png); \
-             }";
-			ui.startBtn->setStyleSheet(strSheet2);
-			m_bSongStatue  = true;
+			_player = new QMediaPlayer;
+			//_player->setMedia(QUrl::fromLocalFile(PublicData::_strMusicPath + "/" + PublicData::_strMusicName));
+			_player->setMedia(QUrl::fromLocalFile("D:/music/MusicSound.mp3"));
+			_player->play();
+			_player->setVolume(50);
 		}
 		else 
 		{
-			QString strSheet = "#startBtn{ \
-				border-image:url(:/MusicPlayer/img/²¥·Å2.png); \
-				} \
-			#startBtn:hover{ \
-				border-image:url(:/MusicPlayer/img/²¥·Å2_hover.png); \
-			}";
-			ui.startBtn->setStyleSheet(strSheet);
-			m_bSongStatue = false;
+			_player->stop();
 		}
+		_bSongStatue = !_bSongStatue;
 	});
+
+	
+
+
 }
 
 CBottomWgt::~CBottomWgt()

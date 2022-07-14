@@ -3,6 +3,7 @@
 #include <QWidget>
 #include "ui_LeftWgt.h"
 #include "PublicData.h"
+#include <QButtonGroup>
 class CLeftWgt : public QWidget
 {
 	Q_OBJECT
@@ -15,4 +16,5 @@ signals:
 	void signal_switch_wgt(PublicData::MUSICWGTE);
 private:
 	Ui::CLeftWgtClass ui;
+	QButtonGroup* _btnGroup;
 };

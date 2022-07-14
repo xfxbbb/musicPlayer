@@ -14,7 +14,12 @@ void MusicPlayer::init()
 {
     ///界面初始化一些信息都在这里///
     m_bIsMaxWindow = false;
-    this->setWindowFlag(Qt::FramelessWindowHint);
+    //this->setWindowFlag(Qt::FramelessWindowHint);
+    //this->setWindowFlag(Qt::FramelessWindowHint);
+    ui.closeBtn->hide();
+    ui.maxBtn->hide();
+    ui.minBtn->hide();
+
     connect(ui.closeBtn,&QPushButton::clicked,this,&MusicPlayer::slots_closeBtn_clicked);
     connect(ui.maxBtn, &QPushButton::clicked, this, &MusicPlayer::slots_maxBtn_clicked);
     connect(ui.minBtn, &QPushButton::clicked, this, &MusicPlayer::slots_minBtn_clicked);
@@ -60,7 +65,6 @@ void MusicPlayer::slots_maxBtn_clicked()
         ui.maxBtn->setStyleSheet(strSheet2);
         m_bIsMaxWindow = false;
     }
-    
 }
 
 void MusicPlayer::slots_minBtn_clicked()

@@ -11,7 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -21,9 +21,8 @@ class Ui_CLocalMusicWgtClass
 {
 public:
     QWidget *leftSongImg;
-    QListView *listView;
-    QPushButton *rdSongBtn;
     QPushButton *addSongBtn;
+    QListWidget *listWidget;
 
     void setupUi(QWidget *CLocalMusicWgtClass)
     {
@@ -38,15 +37,12 @@ public:
 "	border-image: url(:/MusicPlayer/img/musicImg.png);\n"
 "\n"
 "}"));
-        listView = new QListView(CLocalMusicWgtClass);
-        listView->setObjectName(QString::fromUtf8("listView"));
-        listView->setGeometry(QRect(30, 290, 941, 541));
-        rdSongBtn = new QPushButton(CLocalMusicWgtClass);
-        rdSongBtn->setObjectName(QString::fromUtf8("rdSongBtn"));
-        rdSongBtn->setGeometry(QRect(270, 60, 201, 51));
         addSongBtn = new QPushButton(CLocalMusicWgtClass);
         addSongBtn->setObjectName(QString::fromUtf8("addSongBtn"));
-        addSongBtn->setGeometry(QRect(490, 60, 201, 51));
+        addSongBtn->setGeometry(QRect(250, 90, 91, 71));
+        listWidget = new QListWidget(CLocalMusicWgtClass);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        listWidget->setGeometry(QRect(20, 220, 1001, 661));
 
         retranslateUi(CLocalMusicWgtClass);
 
@@ -56,7 +52,6 @@ public:
     void retranslateUi(QWidget *CLocalMusicWgtClass)
     {
         CLocalMusicWgtClass->setWindowTitle(QCoreApplication::translate("CLocalMusicWgtClass", "CLocalMusicWgt", nullptr));
-        rdSongBtn->setText(QCoreApplication::translate("CLocalMusicWgtClass", "\351\232\217\346\234\272\346\222\255\346\224\276", nullptr));
         addSongBtn->setText(QCoreApplication::translate("CLocalMusicWgtClass", "\346\267\273\345\212\240\346\255\214\346\233\262", nullptr));
     } // retranslateUi
 
