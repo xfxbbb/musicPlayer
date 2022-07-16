@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CSongListSmallWgtClass</class>
+ <widget class="QWidget" name="CSongListSmallWgtClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>559</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CSongListSmallWgt</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QWidget" name="mainWgt" native="true">
+     <property name="styleSheet">
+      <string notr="true">#mainWgt{
+	background-color:#f0f0f0;
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">#label{
+	color:black;
+}</string>
+          </property>
+          <property name="text">
+           <string>所有音乐:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="CMusicListView" name="listView"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="backBtn">
+          <property name="styleSheet">
+           <string notr="true">#backBtn{
+	border:1px solid #808080;
+}
+
+#backBtn:hover{
+	border:1px solid balck;
+}</string>
+          </property>
+          <property name="text">
+           <string>返回</string>
+          </property>
+          <property name="icon">
+           <iconset resource="MusicPlayer.qrc">
+            <normaloff>:/MusicPlayer/img/音乐列表_hover.png</normaloff>:/MusicPlayer/img/音乐列表_hover.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CMusicListView</class>
+   <extends>QListView</extends>
+   <header location="global">MusicListView.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="MusicPlayer.qrc"/>
+ </resources>
+ <connections/>
+</ui>

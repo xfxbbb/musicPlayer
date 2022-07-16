@@ -94,7 +94,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MusicListView.cpp" />
+    <ClCompile Include="ProcessMusicInfo.cpp" />
     <ClCompile Include="PublicData.cpp" />
+    <ClCompile Include="SongListSmallWgt.cpp" />
     <QtRcc Include="MusicPlayer.qrc" />
     <QtUic Include="BottomWgt.ui" />
     <QtUic Include="FavouriteMusicWgt.ui" />
@@ -111,6 +114,7 @@
     <ClCompile Include="MainContentWgt.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="SongListSmallWgt.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="BottomWgt.h" />
@@ -131,6 +135,9 @@
     <QtMoc Include="FavouriteMusicWgt.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="SongListSmallWgt.h" />
+    <QtMoc Include="MusicListView.h" />
+    <QtMoc Include="ProcessMusicInfo.h" />
     <ClInclude Include="PublicData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

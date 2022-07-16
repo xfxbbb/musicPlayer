@@ -6,8 +6,14 @@ namespace PublicData{
 		E_ALLMUSIC,
 		E_FAVOURITEMUSIC
 	};
-	static QString _strMusicPath{};
-	static QString _strMusicName{};
+	
+	struct SongInfo{  
+		// ∏Ë«˙–≈œ¢
+		QString _SongPath;
+		QString _SongName;
+	};
+	
+
 }
 
 

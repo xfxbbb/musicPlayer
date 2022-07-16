@@ -1,9 +1,10 @@
 #pragma once
 // 底部界面类
 #include <QWidget>
-#include <QtMultimedia/QMediaPlayer>
 #include "ui_BottomWgt.h"
 #include "PublicData.h"
+#include "SongListSmallWgt.h"
+#include <QLabel>
 class CBottomWgt : public QWidget
 {
 	Q_OBJECT
@@ -11,9 +12,12 @@ class CBottomWgt : public QWidget
 public:
 	CBottomWgt(QWidget *parent = nullptr);
 	~CBottomWgt();
-	
+public:
+	QPushButton* _songListBtn;
+	QPushButton* _startBtn;
+	QPushButton* _inSongBtn;
+	QPushButton* _nextSongBtn;
+	QLabel* _musicNameLabel;
 private:
 	Ui::CBottomWgtClass ui;
-	bool _bSongStatue{ false };  // 默认为false 也就是暂停状态
-	QMediaPlayer* _player;
 };

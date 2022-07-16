@@ -1,5 +1,8 @@
 #include "MusicPlayer.h"
-
+#include "LocalMusicWgt.h"
+#include <QStringListModel>
+#include <QFileDialog>
+#include <QDir>
 MusicPlayer::MusicPlayer(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -13,7 +16,8 @@ MusicPlayer::~MusicPlayer()
 void MusicPlayer::init()
 {
     ///界面初始化一些信息都在这里///
-    m_bIsMaxWindow = false;
+    _bIsMaxWindow = false;
+    _songListWgt = new CSongListSmallWgt;
     //this->setWindowFlag(Qt::FramelessWindowHint);
     //this->setWindowFlag(Qt::FramelessWindowHint);
     ui.closeBtn->hide();
@@ -25,6 +29,41 @@ void MusicPlayer::init()
     connect(ui.minBtn, &QPushButton::clicked, this, &MusicPlayer::slots_minBtn_clicked);
     connect(ui.leftWgt, &CLeftWgt::signal_switch_wgt, this, &MusicPlayer::slots_switch_musicWgt);
     ui.titleWgt->installEventFilter(this);
+
+    // bottomWgt播放按钮槽函数
+    connect(ui.bottomWgt->_startBtn, &QPushButton::clicked, this, [=]() {
+        if (!_songStatus)  //  默认为暂停 点击后播放
+        {
+
+        }
+        else 
+        {
+                
+        }
+        _songStatus = !_songStatus;
+        });
+
+    // 展示音乐小列表
+    connect(ui.bottomWgt->_songListBtn, &QPushButton::clicked, this, [=]() {
+        if (_songListWgt)
+        {
+            //_songListWgt->move(QCursor::pos());
+            _songListWgt->show();
+        }
+        });
+    connect(ui.contentWgt->_localMusicWgt->_addSongBtn, &QPushButton::clicked, this, [=]() {
+        QFileDialog* fileDIg = new QFileDialog;
+        QString strPath = fileDIg->getExistingDirectory(this, "添加音乐");
+        QDir dir(strPath);
+        QStringList strItmes = dir.entryList(QStringList() << "*.mp3");
+        QStringListModel* items = new QStringListModel(strItmes);
+        ui.contentWgt->_listView->setModel(items);
+     });
+}
+
+void MusicPlayer::setSongPlayerPath(QString strMusicPath)
+{
+    ///设置///
 }
 
 void MusicPlayer::slots_closeBtn_clicked()
@@ -36,10 +75,10 @@ void MusicPlayer::slots_closeBtn_clicked()
 void MusicPlayer::slots_maxBtn_clicked()
 {
     ///title栏的最大化按钮槽函数 ///
-    if (!m_bIsMaxWindow)
+    if (!_bIsMaxWindow)
     {
         
-        m_beforeRec = this->geometry();  // 放大之前记录当前屏幕尺寸
+        _beforeRec = this->geometry();  // 放大之前记录当前屏幕尺寸
         this->setGeometry(QApplication::desktop()->availableGeometry(this));
         QString strSheet = " \
             #maxBtn{ \
@@ -50,11 +89,11 @@ void MusicPlayer::slots_maxBtn_clicked()
              }";
             
         ui.maxBtn->setStyleSheet(strSheet);
-        m_bIsMaxWindow = true;
+        _bIsMaxWindow = true;
     }
     else
     {
-        this->setGeometry(m_beforeRec);
+        this->setGeometry(_beforeRec);
         QString strSheet2 = " \
             #maxBtn{ \
                 border-image:url(:/MusicPlayer/img/max.png); \
@@ -63,7 +102,7 @@ void MusicPlayer::slots_maxBtn_clicked()
                 border-image:url(:/MusicPlayer/img/max_hover.png); \
              }";
         ui.maxBtn->setStyleSheet(strSheet2);
-        m_bIsMaxWindow = false;
+        _bIsMaxWindow = false;
     }
 }
 
@@ -98,12 +137,12 @@ void MusicPlayer::slots_switch_musicWgt(PublicData::MUSICWGTE e)
     if (e == PublicData::MUSICWGTE::E_ALLMUSIC)
     {
         // 显示全部音乐界面
-        ui.contentWgt->m_stackedWgt->setCurrentIndex(PublicData::MUSICWGTE::E_ALLMUSIC);
+        ui.contentWgt->_stackedWgt->setCurrentIndex(PublicData::MUSICWGTE::E_ALLMUSIC);
     }
     else if (e == PublicData::MUSICWGTE::E_FAVOURITEMUSIC)
     {
          // 显示收藏音乐界面
-        ui.contentWgt->m_stackedWgt->setCurrentIndex(PublicData::MUSICWGTE::E_FAVOURITEMUSIC);
+        ui.contentWgt->_stackedWgt->setCurrentIndex(PublicData::MUSICWGTE::E_FAVOURITEMUSIC);
     }
 
 }

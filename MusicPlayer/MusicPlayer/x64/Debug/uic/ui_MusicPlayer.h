@@ -183,7 +183,7 @@ public:
 
         bottomWgt = new CBottomWgt(centralWidget);
         bottomWgt->setObjectName(QString::fromUtf8("bottomWgt"));
-        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Maximum);
+        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Maximum);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(bottomWgt->sizePolicy().hasHeightForWidth());

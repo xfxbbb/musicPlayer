@@ -61,6 +61,15 @@
     <ClCompile Include="PublicData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MusicListView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SongListSmallWgt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessMusicInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="BottomWgt.ui">
@@ -76,6 +85,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="FavouriteMusicWgt.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="SongListSmallWgt.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -96,6 +108,15 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="FavouriteMusicWgt.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MusicListView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SongListSmallWgt.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ProcessMusicInfo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

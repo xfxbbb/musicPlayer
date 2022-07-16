@@ -43,7 +43,7 @@ public:
     QWidget *contentWgt;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
-    QLabel *label;
+    QLabel *musicNameLabel;
     DownProcessBar *processWidget;
     QWidget *rightWgt;
     QVBoxLayout *verticalLayout_4;
@@ -72,7 +72,7 @@ public:
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
         bgWgt = new QWidget(CBottomWgtClass);
         bgWgt->setObjectName(QString::fromUtf8("bgWgt"));
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Maximum);
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Maximum);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(bgWgt->sizePolicy().hasHeightForWidth());
@@ -84,11 +84,11 @@ public:
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         verticalLayout_6->setContentsMargins(-1, -1, -1, 0);
         horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setSpacing(0);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         leftWgt = new QWidget(bgWgt);
         leftWgt->setObjectName(QString::fromUtf8("leftWgt"));
-        QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Preferred);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(leftWgt->sizePolicy().hasHeightForWidth());
@@ -187,6 +187,7 @@ public:
         sizePolicy4.setVerticalStretch(0);
         sizePolicy4.setHeightForWidth(musicShowBtn->sizePolicy().hasHeightForWidth());
         musicShowBtn->setSizePolicy(sizePolicy4);
+        musicShowBtn->setMinimumSize(QSize(80, 0));
         musicShowBtn->setMaximumSize(QSize(80, 90));
         musicShowBtn->setStyleSheet(QString::fromUtf8("#musicShowBtn{\n"
 "	\n"
@@ -197,9 +198,9 @@ public:
 
         contentWgt = new QWidget(bgWgt);
         contentWgt->setObjectName(QString::fromUtf8("contentWgt"));
-        sizePolicy4.setHeightForWidth(contentWgt->sizePolicy().hasHeightForWidth());
-        contentWgt->setSizePolicy(sizePolicy4);
-        contentWgt->setMaximumSize(QSize(1000, 85));
+        sizePolicy1.setHeightForWidth(contentWgt->sizePolicy().hasHeightForWidth());
+        contentWgt->setSizePolicy(sizePolicy1);
+        contentWgt->setMaximumSize(QSize(10000, 85));
         contentWgt->setStyleSheet(QString::fromUtf8("#contentWgt{\n"
 "	background:#ffffff;\n"
 "}"));
@@ -211,23 +212,23 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(0);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        label = new QLabel(contentWgt);
-        label->setObjectName(QString::fromUtf8("label"));
+        musicNameLabel = new QLabel(contentWgt);
+        musicNameLabel->setObjectName(QString::fromUtf8("musicNameLabel"));
         QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Minimum);
         sizePolicy5.setHorizontalStretch(0);
         sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy5);
-        label->setMaximumSize(QSize(16777215, 20));
-        label->setAlignment(Qt::AlignCenter);
+        sizePolicy5.setHeightForWidth(musicNameLabel->sizePolicy().hasHeightForWidth());
+        musicNameLabel->setSizePolicy(sizePolicy5);
+        musicNameLabel->setMaximumSize(QSize(16777215, 20));
+        musicNameLabel->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_2->addWidget(label);
+        verticalLayout_2->addWidget(musicNameLabel);
 
         processWidget = new DownProcessBar(contentWgt);
         processWidget->setObjectName(QString::fromUtf8("processWidget"));
         sizePolicy4.setHeightForWidth(processWidget->sizePolicy().hasHeightForWidth());
         processWidget->setSizePolicy(sizePolicy4);
-        processWidget->setMaximumSize(QSize(1000, 60));
+        processWidget->setMaximumSize(QSize(100000, 60));
         processWidget->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout_2->addWidget(processWidget);
@@ -243,8 +244,8 @@ public:
 
         rightWgt = new QWidget(bgWgt);
         rightWgt->setObjectName(QString::fromUtf8("rightWgt"));
-        sizePolicy4.setHeightForWidth(rightWgt->sizePolicy().hasHeightForWidth());
-        rightWgt->setSizePolicy(sizePolicy4);
+        sizePolicy1.setHeightForWidth(rightWgt->sizePolicy().hasHeightForWidth());
+        rightWgt->setSizePolicy(sizePolicy1);
         rightWgt->setMaximumSize(QSize(200, 85));
         rightWgt->setStyleSheet(QString::fromUtf8("#rightWgt{\n"
 "	background:#ffffff;\n"
@@ -259,22 +260,30 @@ public:
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         songListBtn = new QPushButton(rightWgt);
         songListBtn->setObjectName(QString::fromUtf8("songListBtn"));
-        sizePolicy1.setHeightForWidth(songListBtn->sizePolicy().hasHeightForWidth());
-        songListBtn->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::Maximum);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(songListBtn->sizePolicy().hasHeightForWidth());
+        songListBtn->setSizePolicy(sizePolicy6);
         songListBtn->setMaximumSize(QSize(30, 35));
         songListBtn->setStyleSheet(QString::fromUtf8("#songListBtn{\n"
 "	border-image: url(:/MusicPlayer/img/\351\237\263\344\271\220\345\210\227\350\241\250.png);\n"
 "}\n"
 "#songListBtn:hover{\n"
 "	border-image: url(:/MusicPlayer/img/\351\237\263\344\271\220\345\210\227\350\241\250_hover.png);\n"
+"}\n"
+"#songListBtn::checked{\n"
+"border-image: url(:/MusicPlayer/img/\351\237\263\344\271\220\345\210\227\350\241\250_hover.png);\n"
 "}"));
+        songListBtn->setCheckable(true);
+        songListBtn->setAutoExclusive(true);
 
         horizontalLayout_3->addWidget(songListBtn);
 
         voiceBtn = new QPushButton(rightWgt);
         voiceBtn->setObjectName(QString::fromUtf8("voiceBtn"));
-        sizePolicy1.setHeightForWidth(voiceBtn->sizePolicy().hasHeightForWidth());
-        voiceBtn->setSizePolicy(sizePolicy1);
+        sizePolicy6.setHeightForWidth(voiceBtn->sizePolicy().hasHeightForWidth());
+        voiceBtn->setSizePolicy(sizePolicy6);
         voiceBtn->setMaximumSize(QSize(35, 40));
         voiceBtn->setStyleSheet(QString::fromUtf8("#voiceBtn{\n"
 "	border-image: url(:/MusicPlayer/img/\345\243\260\351\237\263.png);\n"
@@ -310,7 +319,7 @@ public:
         startBtn->setText(QString());
         nextSongBtn->setText(QString());
         musicShowBtn->setText(QString());
-        label->setText(QCoreApplication::translate("CBottomWgtClass", "\346\255\214\346\233\262\345\220\215\347\247\260", nullptr));
+        musicNameLabel->setText(QCoreApplication::translate("CBottomWgtClass", "\346\255\214\346\233\262\345\220\215\347\247\260", nullptr));
         songListBtn->setText(QString());
         voiceBtn->setText(QString());
     } // retranslateUi
