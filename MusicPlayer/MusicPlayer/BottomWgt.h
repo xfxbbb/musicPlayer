@@ -5,6 +5,24 @@
 #include "PublicData.h"
 #include "SongListSmallWgt.h"
 #include <QLabel>
+#include <SkiaViewQtAdapter.hpp>
+#include "LiveDate.h"
+
+class MySample : public SkiaUi::SkiaView {
+public:
+	using SkiaView::SkiaView;
+
+protected:
+	void onPaintEvent(SkiaUi::SkiaPaintEvent& evt) override;
+	void onMousePressEvent(SkiaUi::SkiaMouseEvent& evt) override;
+	void onMouseReleaseEvent(SkiaUi::SkiaMouseEvent& evt) override;
+	void onMouseMoveEvent(SkiaUi::SkiaMouseEvent& evt) override;
+private:
+
+	float _pass_value{ 0.5 }; //0.0-1.0
+	bool _pressed{ false };
+};
+
 class CBottomWgt : public QWidget
 {
 	Q_OBJECT
@@ -18,6 +36,13 @@ public:
 	QPushButton* _inSongBtn;
 	QPushButton* _nextSongBtn;
 	QLabel* _musicNameLabel;
+
+Q_SIGNALS:
+	void sig_test(QString name, int age, double weight);
 private:
 	Ui::CBottomWgtClass ui;
+
+	MySample _sample;
+
+	LiveData<int> lv_data;
 };

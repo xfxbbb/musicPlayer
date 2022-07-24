@@ -70,6 +70,15 @@
     <ClCompile Include="ProcessMusicInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SkiaViewQtAdapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QCoroHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LiveDate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="BottomWgt.ui">
@@ -119,9 +128,21 @@
     <QtMoc Include="ProcessMusicInfo.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="SkiaViewQtAdapter.hpp">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QCoroHandle.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PublicData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LiveDate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

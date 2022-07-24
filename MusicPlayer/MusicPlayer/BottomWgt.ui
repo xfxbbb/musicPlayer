@@ -364,7 +364,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="DownProcessBar" name="processWidget" native="true">
+                <widget class="QWidget" name="processWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                    <horstretch>0</horstretch>
@@ -505,14 +505,6 @@ border-image: url(:/MusicPlayer/img/音乐列表_hover.png);
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>DownProcessBar</class>
-   <extends>QWidget</extends>
-   <header location="global">DownProcessBar.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="MusicPlayer.qrc"/>
  </resources>

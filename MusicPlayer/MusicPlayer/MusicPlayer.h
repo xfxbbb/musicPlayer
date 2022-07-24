@@ -8,6 +8,10 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include "ui_MusicPlayer.h"
+
+#include <QCoroHandle.h>
+#include "Utils.hpp"
+
 class MusicPlayer : public QMainWindow
 {
     Q_OBJECT
@@ -22,6 +26,7 @@ public slots:
     void slots_maxBtn_clicked();  // title栏 最大化/还原的按钮槽函数
     void slots_minBtn_clicked();  // title栏 最小化按钮的槽函数
     void slots_switch_musicWgt(PublicData::MUSICWGTE e);  // 切换界面
+
 protected:
     virtual bool eventFilter(QObject *obj,QEvent* eve);  // 重写事件过滤器
 private:
