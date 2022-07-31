@@ -27,5 +27,12 @@
         <file>img/allMusic_hover.png</file>
         <file>img/localMusic.png</file>
         <file>img/localMusic_hover.png</file>
+        <file>img/addSong.png</file>
+        <file>img/addSong_clicked.png</file>
+        <file>img/addSong_hover.png</file>
+        <file>img/addFile.png</file>
+        <file>img/addFile_hover.png</file>
+        <file>img/search.png</file>
+        <file>img/search_hover.png</file>
     </qresource>
 </RCC>

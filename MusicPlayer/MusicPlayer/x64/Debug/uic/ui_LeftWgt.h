@@ -37,7 +37,7 @@ public:
     {
         if (CLeftWgtClass->objectName().isEmpty())
             CLeftWgtClass->setObjectName(QString::fromUtf8("CLeftWgtClass"));
-        CLeftWgtClass->resize(300, 1292);
+        CLeftWgtClass->resize(300, 527);
         CLeftWgtClass->setStyleSheet(QString::fromUtf8(""));
         verticalLayout_3 = new QVBoxLayout(CLeftWgtClass);
         verticalLayout_3->setSpacing(0);

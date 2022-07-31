@@ -47,9 +47,10 @@ public:
 "\n"
 "}"));
         verticalLayout_2 = new QVBoxLayout(awidget);
-        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setSpacing(0);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         stackedWidget = new QStackedWidget(awidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         page = new CLocalMusicWgt();

@@ -6,23 +6,50 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1075</width>
-    <height>967</height>
+    <width>1373</width>
+    <height>1055</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>CLocalMusicWgt</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <property name="styleSheet">
+   <string notr="true">#CLocalMusicWgtClass{
+	background-color:#ffffff;
+
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="spacing">
+      <number>10</number>
+     </property>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <property name="spacing">
         <number>0</number>
        </property>
        <item>
         <widget class="QWidget" name="leftSongImg" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
            <horstretch>0</horstretch>
@@ -31,8 +58,8 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>300</width>
-           <height>260</height>
+           <width>187</width>
+           <height>187</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -45,77 +72,227 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="addSongBtn">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>0</number>
          </property>
-         <property name="minimumSize">
-          <size>
-           <width>30</width>
-           <height>100</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>添加歌曲</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="spacing">
+            <number>7</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="localLabel">
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>本地音乐</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="addSongBtn">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>144</width>
+               <height>35</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#addSongBtn{
+	border-image: url(:/MusicPlayer/img/addFile.png);
+}
+#addSongBtn:hover{
+	border-image: url(:/MusicPlayer/img/addFile_hover.png);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>888</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="searchWgt" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>230</width>
+               <height>31</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#searchWgt{
+	border-radius:20%;
+	background-color:#f5f5f5;
+}
+#searchWgt:hover{
+	background-color:#ffffff;
+}</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item row="0" column="0">
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QPushButton" name="searchBtn">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>38</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#searchBtn{
+	border-image: url(:/MusicPlayer/img/search.png);
+}
+
+</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="searchEdit">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>160</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>160</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">#searchEdit{
+	border:none;
+	background-color:#f5f5f5;
+
+}
+
+#searchEdit:hover{
+	border:none;
+	background-color:#ffffff;
+
+}</string>
+                  </property>
+                  <property name="placeholderText">
+                   <string>搜索歌单</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="CMusicListView" name="listView">
+      <widget class="QTableView" name="musicView">
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>800</height>
+         <height>0</height>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">/*QListView的样式表*/
-#listView{
-    show-decoration-selected: 1;
+        <string notr="true">#musicView{
+	border:none;
+
+    gridline-color: black;                              /*表格内框颜色*/
+              /*表格内背景色*/
+    alternate-background-color: #f5f5f5;
+    selection-color: white;                             /*选中区域的文字颜色*/
+    selection-background-color: rgb(77, 77, 77);        /*选中区域的背景色*/
+	font-size:14pt;
 }
-  
-/*iterm的高度*/
-#listView::item{
-	height: 50px; /*插入iterm高度*/
-	font-size:20pt;
-}
-#listView::item:alternate {
-      background: #EEEEEE;		
-}
-#listView::item:selected {
-      border: 1px solid #6a6ea9;	
-}
-/*当前index的颜色*/
-#listView::item:selected:!active {
-      background: #838383
-}
-/*鼠标选中的颜色*/
-#listView::item:selected:active {
-     background: #c3c3c3
-}
-/*鼠标悬停的颜色*/
-#listView::item:hover {
-     background: #c3c3c3
-}
+
+
+
 </string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
        </property>
       </widget>
      </item>
@@ -124,13 +301,6 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>CMusicListView</class>
-   <extends>QListView</extends>
-   <header location="global">MusicListView.h</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="MusicPlayer.qrc"/>
  </resources>

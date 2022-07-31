@@ -1,13 +1,10 @@
-﻿  uic SongListSmallWgt.ui
-  moc MainContentWgt.h
+﻿  uic LocalMusicWgt.ui
   BottomWgt.cpp
+  LocalMusicWgt.cpp
   MainContentWgt.cpp
   MusicPlayer.cpp
-  SongListSmallWgt.cpp
   main.cpp
-D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\MusicPlayer\MusicPlayer.cpp(54,44): error C2039: "_addSongBtn": 不是 "QWidget" 的成员
-C:\Qt_exe\5.15.2\msvc2019_64\include\QtWidgets\qlayoutitem.h(57): message : 参见“QWidget”的声明
-D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\MusicPlayer\MusicPlayer.cpp(60,24): error C2039: "_listView": 不是 "CMainContentWgt" 的成员
-D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\MusicPlayer\MainContentWgt.h(7): message : 参见“CMainContentWgt”的声明
-D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\MusicPlayer\MusicPlayer.cpp(60,1): error C2039: "__this": 不是 "CMainContentWgt" 的成员
-D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\MusicPlayer\MainContentWgt.h(7): message : 参见“CMainContentWgt”的声明
+  moc_LocalMusicWgt.cpp
+  moc_MainContentWgt.cpp
+  moc_MusicPlayer.cpp
+  MusicPlayer.vcxproj -> D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\x64\Debug\MusicPlayer.exe

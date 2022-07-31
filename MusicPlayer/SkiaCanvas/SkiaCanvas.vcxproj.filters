@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\vk_virtual_swapchain">
+      <UniqueIdentifier>{e054b4c7-f46e-488e-a338-978cf279fdc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\vk_virtual_swapchain">
+      <UniqueIdentifier>{275479dc-fa5c-4e95-a97d-8b55ca73c92f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\vk_virtual_swapchain\tools">
+      <UniqueIdentifier>{d9c04924-0713-4b19-aa24-621314a5190f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\vk_virtual_swapchain\tools">
+      <UniqueIdentifier>{c2dc8d21-545d-44cb-a1c9-e7e861f7a6f6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="vk_virtual_swapchain\src\base_swapchain.cpp">
+      <Filter>源文件\vk_virtual_swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\layer.cpp">
+      <Filter>源文件\vk_virtual_swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\platform.cpp">
+      <Filter>源文件\vk_virtual_swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\swapchain.cpp">
+      <Filter>源文件\vk_virtual_swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\virtual_swapchain.cpp">
+      <Filter>源文件\vk_virtual_swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\tools\dl_loader.cpp">
+      <Filter>源文件\vk_virtual_swapchain\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\tools\get_vulkan_proc_address.cpp">
+      <Filter>源文件\vk_virtual_swapchain\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\tools\image.cpp">
+      <Filter>源文件\vk_virtual_swapchain\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="vk_virtual_swapchain\src\tools\log.cpp">
+      <Filter>源文件\vk_virtual_swapchain\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="RasterWindowContext_win.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VkTestUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanOfflineWindowContext.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VulkanOfflineWindowContext_win.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowContext.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SkiaView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SkiaDraw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vk_virtual_swapchain\include\base_swapchain.h">
+      <Filter>头文件\vk_virtual_swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\layer.h">
+      <Filter>头文件\vk_virtual_swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\platform.h">
+      <Filter>头文件\vk_virtual_swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\swapchain.h">
+      <Filter>头文件\vk_virtual_swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\threading.h">
+      <Filter>头文件\vk_virtual_swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\virtual_swapchain.h">
+      <Filter>头文件\vk_virtual_swapchain</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\tools\dl_loader.h">
+      <Filter>头文件\vk_virtual_swapchain\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\tools\get_vulkan_proc_address.h">
+      <Filter>头文件\vk_virtual_swapchain\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\tools\image.h">
+      <Filter>头文件\vk_virtual_swapchain\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_virtual_swapchain\include\tools\log.h">
+      <Filter>头文件\vk_virtual_swapchain\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="VulkanOfflineWindowContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RasterWindowContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data_type.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowContextFactory_win.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vk_mem_alloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkiaView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkiaViewEvent.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SkiaDraw.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommType.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

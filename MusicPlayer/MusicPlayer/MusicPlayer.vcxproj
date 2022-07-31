@@ -33,7 +33,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>5.15.2_msvc2019_64</QtInstall>
     <QtBuildConfig>debug</QtBuildConfig>
-    <QtModules>gui;uitools;widgets;core</QtModules>
+    <QtModules>core;gui;multimedia;uitools;widgets;multimediawidgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>5.15.2_msvc2019_64</QtInstall>
@@ -61,10 +61,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SkiaQt;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Qt5Multimedia.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Qt_exe\5.15.2\msvc2019_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>skottie.lib;sksg.lib;svg.lib;skparagraph.lib;skshaper.lib;freetype2.lib;harfbuzz.lib;skia.lib;opengl32.lib;d3d12.lib;d3dcompiler.lib;dxgi.lib;Ws2_32.lib;Mswsock.lib;Synchronization.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Qt_exe\5.15.2\msvc2019_64\lib;D:\workspace\bzh\SkiaCanvas\skia_library\out\Debug-x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -94,9 +96,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DbProcess.cpp" />
+    <ClCompile Include="GlSig.cpp" />
+    <ClCompile Include="LiveDate.cpp" />
     <ClCompile Include="MusicListView.cpp" />
     <ClCompile Include="ProcessMusicInfo.cpp" />
     <ClCompile Include="PublicData.cpp" />
+    <ClCompile Include="QCoroHandle.cpp" />
+    <ClCompile Include="SkiaViewQtAdapter.cpp" />
     <ClCompile Include="SongListSmallWgt.cpp" />
     <QtRcc Include="MusicPlayer.qrc" />
     <QtUic Include="BottomWgt.ui" />
@@ -135,10 +142,27 @@
     <QtMoc Include="FavouriteMusicWgt.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="QCoroHandle.h" />
+    <QtMoc Include="GlSig.h" />
+    <QtMoc Include="DbProcess.h" />
+    <ClInclude Include="LiveDate.h" />
+    <ClInclude Include="Utils.hpp" />
+    <QtMoc Include="SkiaViewQtAdapter.hpp" />
     <QtMoc Include="SongListSmallWgt.h" />
     <QtMoc Include="MusicListView.h" />
     <QtMoc Include="ProcessMusicInfo.h" />
     <ClInclude Include="PublicData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CppCoro\CppCoro.vcxproj">
+      <Project>{f58c3134-0d74-4f90-9a84-1c87c7f19897}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Eventpp\Eventpp.vcxproj">
+      <Project>{78af38f7-d6a9-483f-8033-2ebea018eca9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SkiaCanvas\SkiaCanvas.vcxproj">
+      <Project>{aa4368d4-f499-4469-a232-5e266f6617c7}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

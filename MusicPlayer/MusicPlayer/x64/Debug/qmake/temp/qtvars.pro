@@ -1,2 +1,2 @@
 CONFIG += no_fixpath
-QT += gui uitools widgets core
+QT += core gui multimedia uitools widgets multimediawidgets

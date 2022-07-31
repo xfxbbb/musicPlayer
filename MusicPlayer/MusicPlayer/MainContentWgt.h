@@ -14,8 +14,8 @@ public:
 
 public:
 	QStackedWidget* _stackedWgt;
-	QWidget* _localMusicWgt;
-	QWidget* _wgt2;
+	CLocalMusicWgt* _localMusicWgt;
+	CFavouriteMusicWgt* _wgt2;
 private:
 	Ui::CMainContentWgtClass ui;
 };

@@ -3,7 +3,12 @@
 #include <QWidget>
 #include "ui_LocalMusicWgt.h"
 #include "PublicData.h"
-
+#include <QListView>
+#include <QTableView>
+#include <QFileDialog>
+#include <QFileInfo>
+#include<QStandardItem>
+#include<QStandardItemModel>
 class CLocalMusicWgt : public QWidget
 {
 	Q_OBJECT
@@ -15,6 +20,7 @@ public:
 public:
 	QListView* _listView;
 	QPushButton* _addSongBtn;
+	QStandardItemModel* _model;
 signals:
 	void signal_listViewIndexChange(QString itemTxt);
 private:

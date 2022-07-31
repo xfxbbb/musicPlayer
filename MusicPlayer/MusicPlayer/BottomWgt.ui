@@ -61,6 +61,18 @@
       </size>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_6">
+      <property name="spacing">
+       <number>7</number>
+      </property>
+      <property name="leftMargin">
+       <number>3</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>3</number>
+      </property>
       <property name="bottomMargin">
        <number>0</number>
       </property>
@@ -280,13 +292,13 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>80</width>
+              <width>85</width>
               <height>0</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>80</width>
+              <width>85</width>
               <height>90</height>
              </size>
             </property>
@@ -317,7 +329,7 @@
             </property>
             <property name="styleSheet">
              <string notr="true">#contentWgt{
-	background:#ffffff;
+	background:#f2f2f2;
 }</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -364,7 +376,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="DownProcessBar" name="processWidget" native="true">
+                <widget class="QWidget" name="processWidget" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                    <horstretch>0</horstretch>
@@ -505,14 +517,6 @@ border-image: url(:/MusicPlayer/img/音乐列表_hover.png);
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>DownProcessBar</class>
-   <extends>QWidget</extends>
-   <header location="global">DownProcessBar.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="MusicPlayer.qrc"/>
  </resources>

@@ -9,7 +9,6 @@
 #ifndef UI_BOTTOMWGT_H
 #define UI_BOTTOMWGT_H
 
-#include <DownProcessBar.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
@@ -44,7 +43,7 @@ public:
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
     QLabel *musicNameLabel;
-    DownProcessBar *processWidget;
+    QWidget *processWidget;
     QWidget *rightWgt;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_3;
@@ -79,10 +78,10 @@ public:
         bgWgt->setSizePolicy(sizePolicy1);
         bgWgt->setMaximumSize(QSize(16777215, 85));
         verticalLayout_6 = new QVBoxLayout(bgWgt);
-        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setSpacing(7);
         verticalLayout_6->setContentsMargins(11, 11, 11, 11);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        verticalLayout_6->setContentsMargins(-1, -1, -1, 0);
+        verticalLayout_6->setContentsMargins(3, 0, 3, 0);
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(0);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
@@ -187,8 +186,8 @@ public:
         sizePolicy4.setVerticalStretch(0);
         sizePolicy4.setHeightForWidth(musicShowBtn->sizePolicy().hasHeightForWidth());
         musicShowBtn->setSizePolicy(sizePolicy4);
-        musicShowBtn->setMinimumSize(QSize(80, 0));
-        musicShowBtn->setMaximumSize(QSize(80, 90));
+        musicShowBtn->setMinimumSize(QSize(85, 0));
+        musicShowBtn->setMaximumSize(QSize(85, 90));
         musicShowBtn->setStyleSheet(QString::fromUtf8("#musicShowBtn{\n"
 "	\n"
 "	border-image: url(:/MusicPlayer/img/musicImg.png);\n"
@@ -202,7 +201,7 @@ public:
         contentWgt->setSizePolicy(sizePolicy1);
         contentWgt->setMaximumSize(QSize(10000, 85));
         contentWgt->setStyleSheet(QString::fromUtf8("#contentWgt{\n"
-"	background:#ffffff;\n"
+"	background:#f2f2f2;\n"
 "}"));
         verticalLayout_3 = new QVBoxLayout(contentWgt);
         verticalLayout_3->setSpacing(0);
@@ -224,7 +223,7 @@ public:
 
         verticalLayout_2->addWidget(musicNameLabel);
 
-        processWidget = new DownProcessBar(contentWgt);
+        processWidget = new QWidget(contentWgt);
         processWidget->setObjectName(QString::fromUtf8("processWidget"));
         sizePolicy4.setHeightForWidth(processWidget->sizePolicy().hasHeightForWidth());
         processWidget->setSizePolicy(sizePolicy4);
