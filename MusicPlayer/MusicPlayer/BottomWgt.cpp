@@ -18,13 +18,22 @@ CBottomWgt::CBottomWgt(QWidget* parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	init();
+	
+}
+
+CBottomWgt::~CBottomWgt()
+{}
+
+void CBottomWgt::init()
+{
 
 	_songListBtn = ui.songListBtn;
 	_musicNameLabel = ui.musicNameLabel;
 	_startBtn = ui.startBtn;
 	_inSongBtn = ui.inSongBtn;
 	_nextSongBtn = ui.nextSongBtn;
-	
+
 
 	SkiaUi::SkiaView::registerView<SkiaUi::QtRegisterViewImpl>(&_sample, ui.processWidget);
 
@@ -34,15 +43,15 @@ CBottomWgt::CBottomWgt(QWidget* parent)
 	//收到变量更改
 	lv_data->observe([](int v) {
 		qDebug() << "vvv: " << v;
-	}, LiveDateWay::QueuedUIWay);
+		}, LiveDateWay::QueuedUIWay);
 
 	//QPushButton* btn = new QPushButton{ "test" ,this };
 	//connect(btn, &QPushButton::clicked, [this]() {
 	//	//更改变量值
 	//	lv_data->setValue(100);
 	//	});
-	
-	
+
+
 	static cppcoro::static_thread_pool thread_pool{ 4 };
 	//emit sig_test("hello", 26, 73.2);
 	connect(this, &CBottomWgt::sig_test, [](QString name, int age, double weight)->coro::AsyncAction {
@@ -69,19 +78,33 @@ CBottomWgt::CBottomWgt(QWidget* parent)
 		}
 		co_await cppcoro::when_all(std::move(tasks));*/
 		});
+
+	_volumeWgt = new VolumeWgt(this);
+	connect(ui.startBtn, &QPushButton::clicked, this, &CBottomWgt::slots_startBtn_clicked);
+	connect(ui.voiceBtn, &QPushButton::clicked, this, &CBottomWgt::slots_voiceBtn_clicked);
+
 }
 
-CBottomWgt::~CBottomWgt()
-{}
-
-void CBottomWgt::init()
+void CBottomWgt::slots_voiceBtn_clicked()
 {
-	connect(ui.startBtn, &QPushButton::clicked, this, [=]() {
-		emit GlobalSig::GetInstance()->signal_test();
-		});
-
+	/// 音量按钮槽函数 ///
+	if (_volumeWgt->isHidden())
+	{
+		QPoint moveTo = ui.voiceBtn->mapToGlobal(QPoint(0, 0));
+		_volumeWgt->setGeometry(moveTo.x() - 10, moveTo.y() - 160, 40, 150);
+		_volumeWgt->show();
+	}
+	else
+	{
+		_volumeWgt->hide();
+	}
 }
 
+void CBottomWgt::slots_startBtn_clicked()
+{
+	/// 播放按钮槽函数 ///
+
+}
 void MySample::onPaintEvent(SkiaUi::SkiaPaintEvent& evt)
 {
 	auto& ctx = evt.getCanvas();  // 获取canvas对象

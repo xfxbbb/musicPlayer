@@ -287,7 +287,7 @@ public:
         voiceBtn->setStyleSheet(QString::fromUtf8("#voiceBtn{\n"
 "	border-image: url(:/MusicPlayer/img/\345\243\260\351\237\263.png);\n"
 "}\n"
-"#voiceBtn:pressed{\n"
+"#voiceBtn1:pressed{\n"
 "	border-image: url(:/MusicPlayer/img/\345\243\260\351\237\263\351\235\231\351\237\263.png);\n"
 "}"));
 

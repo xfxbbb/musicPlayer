@@ -1,10 +1,2 @@
-﻿  uic LocalMusicWgt.ui
-  BottomWgt.cpp
-  LocalMusicWgt.cpp
-  MainContentWgt.cpp
-  MusicPlayer.cpp
-  main.cpp
-  moc_LocalMusicWgt.cpp
-  moc_MainContentWgt.cpp
-  moc_MusicPlayer.cpp
+﻿  MusicPlayer.cpp
   MusicPlayer.vcxproj -> D:\workspace\MusicPlayer\musicPlayer\MusicPlayer\x64\Debug\MusicPlayer.exe

@@ -9,6 +9,7 @@
 #include <QFileInfo>
 #include<QStandardItem>
 #include<QStandardItemModel>
+#include "Delegate.h"
 class CLocalMusicWgt : public QWidget
 {
 	Q_OBJECT
@@ -25,4 +26,6 @@ signals:
 	void signal_listViewIndexChange(QString itemTxt);
 private:
 	Ui::CLocalMusicWgtClass ui;
+	Delegate* _delegate;
+	MuiscStyledItemDelegate* _delegateStyle;
 };

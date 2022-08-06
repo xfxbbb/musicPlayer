@@ -9,6 +9,7 @@
 #ifndef UI_LOCALMUSICWGT_H
 #define UI_LOCALMUSICWGT_H
 
+#include <MusicView.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
@@ -18,7 +19,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -28,6 +28,8 @@ class Ui_CLocalMusicWgtClass
 {
 public:
     QGridLayout *gridLayout_2;
+    QVBoxLayout *verticalLayout_4;
+    QWidget *topWgt;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_3;
     QWidget *leftSongImg;
@@ -42,7 +44,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *searchBtn;
     QLineEdit *searchEdit;
-    QTableView *musicView;
+    MusicView *musicView;
 
     void setupUi(QWidget *CLocalMusicWgtClass)
     {
@@ -58,13 +60,23 @@ public:
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setSpacing(10);
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(0);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        topWgt = new QWidget(CLocalMusicWgtClass);
+        topWgt->setObjectName(QString::fromUtf8("topWgt"));
+        topWgt->setStyleSheet(QString::fromUtf8("#topWgt{\n"
+"	background-color:#ffffff;\n"
+"}"));
+        verticalLayout_3 = new QVBoxLayout(topWgt);
+        verticalLayout_3->setSpacing(0);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(0);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        leftSongImg = new QWidget(CLocalMusicWgtClass);
+        leftSongImg = new QWidget(topWgt);
         leftSongImg->setObjectName(QString::fromUtf8("leftSongImg"));
         leftSongImg->setEnabled(true);
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
@@ -87,7 +99,7 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(7);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        localLabel = new QLabel(CLocalMusicWgtClass);
+        localLabel = new QLabel(topWgt);
         localLabel->setObjectName(QString::fromUtf8("localLabel"));
         QFont font;
         font.setPointSize(20);
@@ -98,7 +110,7 @@ public:
 
         verticalLayout->addWidget(localLabel);
 
-        addSongBtn = new QPushButton(CLocalMusicWgtClass);
+        addSongBtn = new QPushButton(topWgt);
         addSongBtn->setObjectName(QString::fromUtf8("addSongBtn"));
         sizePolicy.setHeightForWidth(addSongBtn->sizePolicy().hasHeightForWidth());
         addSongBtn->setSizePolicy(sizePolicy);
@@ -122,7 +134,7 @@ public:
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
-        searchWgt = new QWidget(CLocalMusicWgtClass);
+        searchWgt = new QWidget(topWgt);
         searchWgt->setObjectName(QString::fromUtf8("searchWgt"));
         sizePolicy.setHeightForWidth(searchWgt->sizePolicy().hasHeightForWidth());
         searchWgt->setSizePolicy(sizePolicy);
@@ -193,30 +205,45 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout_3);
 
-        musicView = new QTableView(CLocalMusicWgtClass);
+
+        verticalLayout_4->addWidget(topWgt);
+
+        musicView = new MusicView(CLocalMusicWgtClass);
         musicView->setObjectName(QString::fromUtf8("musicView"));
         musicView->setMinimumSize(QSize(0, 0));
         musicView->setStyleSheet(QString::fromUtf8("#musicView{\n"
 "	border:none;\n"
-"\n"
 "    gridline-color: black;                              /*\350\241\250\346\240\274\345\206\205\346\241\206\351\242\234\350\211\262*/\n"
 "              /*\350\241\250\346\240\274\345\206\205\350\203\214\346\231\257\350\211\262*/\n"
 "    alternate-background-color: #f5f5f5;\n"
-"    selection-color: white;                             /*\351\200\211\344\270\255\345\214\272\345\237\237\347\232\204\346\226\207\345\255\227\351\242\234\350\211\262*/\n"
+"    selection-color: #808080;                             /*\351\200\211\344\270\255\345\214\272\345\237\237\347\232\204\346\226\207\345\255\227\351\242\234\350\211\262*/\n"
 "    selection-background-color: rgb(77, 77, 77);        /*\351\200\211\344\270\255\345\214\272\345\237\237\347\232\204\350\203\214\346\231\257\350\211\262*/\n"
-"	font-size:14pt;\n"
+"	font-size:12pt;\n"
 "}\n"
+"#musicView1::Item{\n"
+"	height:18px;\n"
+"}\n"
+"#musicView::Item:hover{\n"
+"	gridline-color: red;\n"
+"/*    color: #2eb372;*/\n"
+"    background:#dddddd;\n"
+"}\n"
+"#musicView::Item:selected{\n"
+"/*    color: #2eb372;*/\n"
+"    background: #F6F6F6;\n"
+"}\n"
+"\n"
 "\n"
 "\n"
 "\n"
 ""));
         musicView->setFrameShape(QFrame::NoFrame);
-        musicView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        musicView->setEditTriggers(QAbstractItemView::AllEditTriggers);
 
-        verticalLayout_3->addWidget(musicView);
+        verticalLayout_4->addWidget(musicView);
 
 
-        gridLayout_2->addLayout(verticalLayout_3, 0, 0, 1, 1);
+        gridLayout_2->addLayout(verticalLayout_4, 0, 0, 1, 1);
 
 
         retranslateUi(CLocalMusicWgtClass);

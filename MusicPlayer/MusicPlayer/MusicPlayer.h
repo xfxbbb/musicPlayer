@@ -8,7 +8,8 @@
 #include <QDebug>
 #include <QMouseEvent>
 #include "ui_MusicPlayer.h"
-
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 #include <QCoroHandle.h>
 #include "Utils.hpp"
 
@@ -22,9 +23,6 @@ public:
     void init();  // 初始化界面一些信息
     void setSongPlayerPath(QString strMusicPath);  // 设置将要播放的音乐路径
 public slots:
-    void slots_closeBtn_clicked();  // title栏关闭按钮的槽函数
-    void slots_maxBtn_clicked();  // title栏 最大化/还原的按钮槽函数
-    void slots_minBtn_clicked();  // title栏 最小化按钮的槽函数
     void slots_switch_musicWgt(PublicData::MUSICWGTE e);  // 切换界面
 
 protected:
@@ -35,6 +33,7 @@ private:
     QRect _beforeRec;  // 最大化之前的尺寸
     CSongListSmallWgt* _songListWgt;
     bool _songStatus{false};  // 音乐播放按钮状态 默认为暂停 false 
-
+    QMediaPlaylist* _pPlayList;
+    QMediaPlayer* _pMusicPlayer;
 
 };

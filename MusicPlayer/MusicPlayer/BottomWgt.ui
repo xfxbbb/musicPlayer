@@ -495,7 +495,7 @@ border-image: url(:/MusicPlayer/img/音乐列表_hover.png);
                 <string notr="true">#voiceBtn{
 	border-image: url(:/MusicPlayer/img/声音.png);
 }
-#voiceBtn:pressed{
+#voiceBtn1:pressed{
 	border-image: url(:/MusicPlayer/img/声音静音.png);
 }</string>
                </property>

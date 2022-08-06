@@ -85,6 +85,21 @@
     <ClCompile Include="DbProcess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sqloperate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Delegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicViewCtrlWgt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeWgt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="BottomWgt.ui">
@@ -103,6 +118,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="SongListSmallWgt.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="MusicViewCtrlWgt.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="VolumeWgt.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -146,6 +167,21 @@
     <QtMoc Include="DbProcess.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Sqloperate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Delegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MusicView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MusicViewCtrlWgt.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VolumeWgt.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PublicData.h">
@@ -157,5 +193,8 @@
     <ClInclude Include="LiveDate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

@@ -97,14 +97,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DbProcess.cpp" />
+    <ClCompile Include="Delegate.cpp" />
     <ClCompile Include="GlSig.cpp" />
     <ClCompile Include="LiveDate.cpp" />
     <ClCompile Include="MusicListView.cpp" />
+    <ClCompile Include="MusicView.cpp" />
+    <ClCompile Include="MusicViewCtrlWgt.cpp" />
     <ClCompile Include="ProcessMusicInfo.cpp" />
     <ClCompile Include="PublicData.cpp" />
     <ClCompile Include="QCoroHandle.cpp" />
     <ClCompile Include="SkiaViewQtAdapter.cpp" />
     <ClCompile Include="SongListSmallWgt.cpp" />
+    <ClCompile Include="Sqloperate.cpp" />
+    <ClCompile Include="VolumeWgt.cpp" />
     <QtRcc Include="MusicPlayer.qrc" />
     <QtUic Include="BottomWgt.ui" />
     <QtUic Include="FavouriteMusicWgt.ui" />
@@ -121,7 +126,9 @@
     <ClCompile Include="MainContentWgt.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="MusicViewCtrlWgt.ui" />
     <QtUic Include="SongListSmallWgt.ui" />
+    <QtUic Include="VolumeWgt.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="BottomWgt.h" />
@@ -142,10 +149,15 @@
     <QtMoc Include="FavouriteMusicWgt.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="VolumeWgt.h" />
     <QtMoc Include="QCoroHandle.h" />
     <QtMoc Include="GlSig.h" />
     <QtMoc Include="DbProcess.h" />
+    <QtMoc Include="Delegate.h" />
     <ClInclude Include="LiveDate.h" />
+    <QtMoc Include="Sqloperate.h" />
+    <QtMoc Include="MusicView.h" />
+    <QtMoc Include="MusicViewCtrlWgt.h" />
     <ClInclude Include="Utils.hpp" />
     <QtMoc Include="SkiaViewQtAdapter.hpp" />
     <QtMoc Include="SongListSmallWgt.h" />
@@ -163,6 +175,9 @@
     <ProjectReference Include="..\SkiaCanvas\SkiaCanvas.vcxproj">
       <Project>{aa4368d4-f499-4469-a232-5e266f6617c7}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

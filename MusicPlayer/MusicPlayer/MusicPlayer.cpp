@@ -21,22 +21,21 @@ void MusicPlayer::init()
 	_songListWgt = new CSongListSmallWgt;
 	//this->setWindowFlag(Qt::FramelessWindowHint);
 	//this->setWindowFlag(Qt::FramelessWindowHint);
-	ui.closeBtn->hide();
-	ui.maxBtn->hide();
-	ui.minBtn->hide();
+	_pPlayList = new QMediaPlaylist(this);
+	_pMusicPlayer = new QMediaPlayer(this);
+	_pPlayList->setPlaybackMode(QMediaPlaylist::Loop);
+
 	this->resize(1250, 840);
-	connect(ui.closeBtn, &QPushButton::clicked, this, &MusicPlayer::slots_closeBtn_clicked);
-	connect(ui.maxBtn, &QPushButton::clicked, this, &MusicPlayer::slots_maxBtn_clicked);
-	connect(ui.minBtn, &QPushButton::clicked, this, &MusicPlayer::slots_minBtn_clicked);
+
 	connect(ui.leftWgt, &CLeftWgt::signal_switch_wgt, this, &MusicPlayer::slots_switch_musicWgt);
-	ui.titleWgt->installEventFilter(this);
 
 	// bottomWgt播放按钮槽函数
 	connect(ui.bottomWgt->_startBtn, &QPushButton::clicked, this, [=]() {
 		if (!_songStatus)  //  默认为暂停 点击后播放
 		{
 
-		} else {
+		}
+		else {
 
 		}
 		_songStatus = !_songStatus;
@@ -47,6 +46,8 @@ void MusicPlayer::init()
 		if (_songListWgt) 
 		{
 			//_songListWgt->move(QCursor::pos());
+			QPoint moveTo = ui.bottomWgt->_songListBtn->mapToGlobal(QPoint(0, 0));
+			_songListWgt->setGeometry(moveTo.x() , moveTo.y()-300, 300, 300);
 			_songListWgt->show();
 		}
 		});
@@ -55,50 +56,6 @@ void MusicPlayer::init()
 void MusicPlayer::setSongPlayerPath(QString strMusicPath)
 {
 	///设置///
-}
-
-void MusicPlayer::slots_closeBtn_clicked()
-{
-	///title栏的关闭按钮槽函数///
-	this->close();
-}
-
-void MusicPlayer::slots_maxBtn_clicked()
-{
-	///title栏的最大化按钮槽函数 ///
-	if (!_bIsMaxWindow) {
-
-		_beforeRec = this->geometry();  // 放大之前记录当前屏幕尺寸
-		this->setGeometry(QApplication::desktop()->availableGeometry(this));
-		QString strSheet = " \
-            #maxBtn{ \
-                border-image:url(:/MusicPlayer/img/recover.png); \
-             } \
-            #maxBtn:hover{ \
-                border-image:url(:/MusicPlayer/img/recover_hover.png); \
-             }";
-
-		ui.maxBtn->setStyleSheet(strSheet);
-		_bIsMaxWindow = true;
-	} else {
-		this->setGeometry(_beforeRec);
-		QString strSheet2 = " \
-            #maxBtn{ \
-                border-image:url(:/MusicPlayer/img/max.png); \
-             } \
-            #maxBtn:hover{ \
-                border-image:url(:/MusicPlayer/img/max_hover.png); \
-             }";
-		ui.maxBtn->setStyleSheet(strSheet2);
-		_bIsMaxWindow = false;
-	}
-}
-
-void MusicPlayer::slots_minBtn_clicked()
-{
-	///title栏的最小化按钮槽函数///
-	qDebug() << "最小化";
-	showMinimized();
 }
 
 bool MusicPlayer::eventFilter(QObject* obj, QEvent* eve)
