@@ -1,5 +1,8 @@
 #include "MusicListView.h"
-
+#include "GlSig.h"
+#include "QFileInfo"
+#include <QStandardItem>
+#include <QStringListModel>
 CMusicListView::CMusicListView(QWidget *parent)
 	: QListView(parent)
 {
@@ -33,6 +36,31 @@ void CMusicListView::init()
 	connect(_leftDoubleClick, &QTimer::timeout, this, [=]() {
 		this->_leftClickFlag = 0;  // 将标志复位
 	});
+
+	connect(GlobalSig::GetInstance(), &GlobalSig::signal_update_musiclist, this, [=](QStringList strMusicPath) {
+		QStringList outPutName;
+		QString strPath;
+		for (auto i : strMusicPath)
+		{
+			strPath = i;
+			qDebug() << "歌曲: " << i;
+			QFileInfo file = QFileInfo(strPath);
+			outPutName.append(file.fileName());
+			//ui.musicView->set;
+			QString strFileName = file.fileName();
+			if (strFileName.contains(".mp3"))
+			{
+				int pos = strFileName.indexOf(".mp3");
+				strFileName = strFileName.mid(0, pos);
+			}
+			//QStandardItem* item = new QStandardItem(strFileName);
+			//item->setTextAlignment(Qt::AlignCenter);
+		}
+		QStringListModel* _model = new QStringListModel(this);
+		//_model->setItem(x, item);
+		_model->setStringList(outPutName);
+		this->setModel(_model);
+		});
 #if 0
 	// 滚轮up定时器
 	connect(_autoUpWheel, &QTimer::timeout, this, [=]() {

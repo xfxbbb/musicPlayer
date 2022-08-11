@@ -4,14 +4,12 @@
 #include <QListView>
 #include <QDebug>
 #include <QString>
+#include "GlSig.h"
 #pragma execution_character_set("utf-8")
 CLocalMusicWgt::CLocalMusicWgt(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
-
-	
-	
 	init();
 }
 
@@ -21,6 +19,8 @@ CLocalMusicWgt::~CLocalMusicWgt()
 void CLocalMusicWgt::init()
 {
 	///初始化///
+
+	_view = ui.musicView;
 	_addSongBtn = ui.addSongBtn;
 	_model = new QStandardItemModel;
 	QStringList tableHeaders{ "歌曲名","歌手","专辑","操作" };
@@ -57,6 +57,7 @@ void CLocalMusicWgt::init()
 		QStringList strPathList,outPutName;
 		QFileDialog* fileDIg = new QFileDialog;
 		strPathList = fileDIg->getOpenFileNames(this, "选择音乐","","音乐文件(*.ape;*.mp3;*.flac;*.wav)");
+		emit GlobalSig::GetInstance()->signal_update_musiclist(strPathList);
 		int x = 0;
 		for (auto i : strPathList)
 		{
@@ -71,12 +72,13 @@ void CLocalMusicWgt::init()
 				int pos = strFileName.indexOf(".mp3");
 				strFileName = strFileName.mid(0,pos);
 			}
+			_ctrlWgt = new MusicViewCtrlWgt;
 			QStandardItem* item = new QStandardItem(strFileName);
 			item->setTextAlignment(Qt::AlignCenter);
 			_model->setItem(x, item);
+			ui.musicView->setIndexWidget(_model->index(x,3),_ctrlWgt);
 			x++;
 		}
-
 		});
 
 

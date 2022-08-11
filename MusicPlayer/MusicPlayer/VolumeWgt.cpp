@@ -1,5 +1,5 @@
 #include "VolumeWgt.h"
-
+#include "GlSig.h"
 VolumeWgt::VolumeWgt(QWidget *parent)
 	: QWidget(parent)
 {
@@ -33,5 +33,7 @@ void VolumeWgt::init()
 
 void VolumeWgt::slots_change_volume_num(int num)
 {
+	/// ¸üÐÂlabel ///
 	ui.VolumeNum->setText(QString::number(num));
+	emit GlobalSig::GetInstance()->signal_update_volume(num);
 }

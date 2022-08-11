@@ -10,6 +10,7 @@
 #include<QStandardItem>
 #include<QStandardItemModel>
 #include "Delegate.h"
+#include "MusicViewCtrlWgt.h"
 class CLocalMusicWgt : public QWidget
 {
 	Q_OBJECT
@@ -20,6 +21,7 @@ public:
 	void init();  // ≥ı ºªØ
 public:
 	QListView* _listView;
+	QTableView* _view;
 	QPushButton* _addSongBtn;
 	QStandardItemModel* _model;
 signals:
@@ -28,4 +30,5 @@ private:
 	Ui::CLocalMusicWgtClass ui;
 	Delegate* _delegate;
 	MuiscStyledItemDelegate* _delegateStyle;
+	MusicViewCtrlWgt* _ctrlWgt;
 };

@@ -22,9 +22,11 @@ public:
     ~MusicPlayer();
     void init();  // 初始化界面一些信息
     void setSongPlayerPath(QString strMusicPath);  // 设置将要播放的音乐路径
+    void pauseOrPlayMusic();  // 暂停/播放音乐
 public slots:
     void slots_switch_musicWgt(PublicData::MUSICWGTE e);  // 切换界面
-
+    void slots_handel_musicPlayerList(QStringList strMusicPath); // 处理音乐播放列表槽函数
+    void slots_update_volume(int iValue);  // 更新音量
 protected:
     virtual bool eventFilter(QObject *obj,QEvent* eve);  // 重写事件过滤器
 private:

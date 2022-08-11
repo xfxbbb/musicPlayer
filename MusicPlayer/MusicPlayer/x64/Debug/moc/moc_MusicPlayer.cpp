@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MusicPlayer_t {
-    QByteArrayData data[5];
-    char stringdata0[59];
+    QByteArrayData data[9];
+    char stringdata0[128];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,11 +36,17 @@ QT_MOC_LITERAL(0, 0, 11), // "MusicPlayer"
 QT_MOC_LITERAL(1, 12, 21), // "slots_switch_musicWgt"
 QT_MOC_LITERAL(2, 34, 0), // ""
 QT_MOC_LITERAL(3, 35, 21), // "PublicData::MUSICWGTE"
-QT_MOC_LITERAL(4, 57, 1) // "e"
+QT_MOC_LITERAL(4, 57, 1), // "e"
+QT_MOC_LITERAL(5, 59, 28), // "slots_handel_musicPlayerList"
+QT_MOC_LITERAL(6, 88, 12), // "strMusicPath"
+QT_MOC_LITERAL(7, 101, 19), // "slots_update_volume"
+QT_MOC_LITERAL(8, 121, 6) // "iValue"
 
     },
     "MusicPlayer\0slots_switch_musicWgt\0\0"
-    "PublicData::MUSICWGTE\0e"
+    "PublicData::MUSICWGTE\0e\0"
+    "slots_handel_musicPlayerList\0strMusicPath\0"
+    "slots_update_volume\0iValue"
 };
 #undef QT_MOC_LITERAL
 
@@ -50,7 +56,7 @@ static const uint qt_meta_data_MusicPlayer[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -58,10 +64,14 @@ static const uint qt_meta_data_MusicPlayer[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   19,    2, 0x0a /* Public */,
+       1,    1,   29,    2, 0x0a /* Public */,
+       5,    1,   32,    2, 0x0a /* Public */,
+       7,    1,   35,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, QMetaType::QStringList,    6,
+    QMetaType::Void, QMetaType::Int,    8,
 
        0        // eod
 };
@@ -73,6 +83,8 @@ void MusicPlayer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->slots_switch_musicWgt((*reinterpret_cast< PublicData::MUSICWGTE(*)>(_a[1]))); break;
+        case 1: _t->slots_handel_musicPlayerList((*reinterpret_cast< QStringList(*)>(_a[1]))); break;
+        case 2: _t->slots_update_volume((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -107,13 +119,13 @@ int MusicPlayer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 3;
     }
     return _id;
 }

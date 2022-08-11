@@ -3,7 +3,8 @@
 #include <QStringListModel>
 #include <QFileDialog>
 #include <QDir>
-
+#include "GlSig.h"
+#include <iostream>
 MusicPlayer::MusicPlayer(QWidget* parent)
 	: QMainWindow(parent)
 {
@@ -21,26 +22,65 @@ void MusicPlayer::init()
 	_songListWgt = new CSongListSmallWgt;
 	//this->setWindowFlag(Qt::FramelessWindowHint);
 	//this->setWindowFlag(Qt::FramelessWindowHint);
-	_pPlayList = new QMediaPlaylist(this);
-	_pMusicPlayer = new QMediaPlayer(this);
+	_pPlayList = new QMediaPlaylist(this);  // 播放列表
+	_pMusicPlayer = new QMediaPlayer(this);  // 播放器
 	_pPlayList->setPlaybackMode(QMediaPlaylist::Loop);
 
 	this->resize(1250, 840);
 
 	connect(ui.leftWgt, &CLeftWgt::signal_switch_wgt, this, &MusicPlayer::slots_switch_musicWgt);
+	// 更新音乐播放列表
+	connect(GlobalSig::GetInstance(),&GlobalSig::signal_update_musiclist, this, &MusicPlayer::slots_handel_musicPlayerList);
 
+	// 更新声音
+	connect(GlobalSig::GetInstance(), &GlobalSig::signal_update_volume, this, &MusicPlayer::slots_update_volume);
 	// bottomWgt播放按钮槽函数
 	connect(ui.bottomWgt->_startBtn, &QPushButton::clicked, this, [=]() {
-		if (!_songStatus)  //  默认为暂停 点击后播放
-		{
-
-		}
-		else {
-
-		}
-		_songStatus = !_songStatus;
+		std::cout << "播放按钮按下.." << std::endl;
+		pauseOrPlayMusic();
 		});
 
+	// 上一曲
+	connect(ui.bottomWgt->_inSongBtn, &QPushButton::clicked, this, [=]() {
+		QString str = ui.contentWgt->_localMusicWgt->_view->currentIndex().data().toString();
+		ui.bottomWgt->_musicNameLabel->setText(str);
+			if (_pMusicPlayer->state() == QMediaPlayer::PausedState)  // 如果是播放状态就暂停
+			{
+				if (_pPlayList->currentIndex() == 0)
+				{
+					QStandardItemModel* m_pModel = ui.contentWgt->_localMusicWgt->_model;
+					_pPlayList->setCurrentIndex(m_pModel->rowCount() - 1);
+					_pMusicPlayer->play();
+				}
+				else
+				{
+					_pPlayList->setCurrentIndex(_pPlayList->currentIndex() - 1);
+					_pMusicPlayer->play();
+				}
+			}
+		});
+
+	// 下一曲
+	connect(ui.bottomWgt->_nextSongBtn, &QPushButton::clicked, this, [=]() {
+		QString str = ui.contentWgt->_localMusicWgt->_view->currentIndex().data().toString();
+		ui.bottomWgt->_musicNameLabel->setText(str);
+		if (_pMusicPlayer->state() == QMediaPlayer::PlayingState)//判断音乐是否播放状态，不用isaudioavaliable
+		{
+			QStandardItemModel* m_pModel = ui.contentWgt->_localMusicWgt->_model;
+			if (_pPlayList->currentIndex() == m_pModel->rowCount() - 1)
+			{
+				_pPlayList->setCurrentIndex(0);
+				_pMusicPlayer->play();
+			}
+			else
+			{
+				_pPlayList->setCurrentIndex(_pPlayList->currentIndex() + 1);
+				_pMusicPlayer->play();
+			}
+		}
+		//切换列表选中状态
+		ui.contentWgt->_localMusicWgt->_view->selectRow(_pPlayList->currentIndex());
+		});
 	// 展示音乐小列表
 	connect(ui.bottomWgt->_songListBtn, &QPushButton::clicked, this, [=]() {
 		if (_songListWgt) 
@@ -56,6 +96,51 @@ void MusicPlayer::init()
 void MusicPlayer::setSongPlayerPath(QString strMusicPath)
 {
 	///设置///
+}
+
+void MusicPlayer::pauseOrPlayMusic()
+{
+	/// 暂停/播放 ///
+	QString str = ui.contentWgt->_localMusicWgt->_view->currentIndex().data().toString();
+	ui.bottomWgt->_musicNameLabel->setText(str);
+	if (_pMusicPlayer->state() == QMediaPlayer::PlayingState)  // 如果是播放状态就暂停
+	{
+		_pMusicPlayer->pause(); 
+		std::cout << "歌曲暂停" << std::endl;
+	}
+	else {
+		_pMusicPlayer->play();
+		std::cout << "歌曲播放" << std::endl;
+	}
+
+}
+
+void MusicPlayer::slots_handel_musicPlayerList(QStringList strMusicPath)
+{
+	/// 处理音乐列表 ///
+	if (!strMusicPath.isEmpty()) 
+	{
+		for (int i = 0; i < strMusicPath.size(); ++i)
+		{
+			//QString personName = m_pModel->record(i).value("歌手").toString();
+			QString strLocalFile = strMusicPath[i];
+			qDebug() << strLocalFile << endl;
+
+			_pPlayList->addMedia(QUrl::fromLocalFile(strLocalFile));
+
+			QString Tmpstr = tr("歌曲:%1").arg(_pPlayList->mediaCount());
+			if (Tmpstr.contains(".mp3"))
+				Tmpstr.remove(".mp3");
+		}
+		_pMusicPlayer->setMedia(_pPlayList);
+	}
+	
+}
+
+void MusicPlayer::slots_update_volume(int iValue)
+{
+	/// 更新音量 ///
+	_pMusicPlayer->setVolume(iValue);
 }
 
 bool MusicPlayer::eventFilter(QObject* obj, QEvent* eve)
